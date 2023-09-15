@@ -95,6 +95,58 @@ word = 'fooTThball, wollEYball, tEnnis'
 #print(result)
 #-------------------- end
 
-lis = [6, 4, "Stroka", True, 6.5]
-print(lis[2:])
-print (lis[::2])
+#lis = [6, 4, "Stroka", True, 6.5]
+#print(lis[2:])
+#print (lis[::2])
+
+# КОРТЕЖИ tuple
+#data = (4, 6, 7, 3, 6, True, 5.6, 'HELLO')
+# data [0]=5 !!!not right
+#print(data [1:6])
+#print(data.count(60))
+#print(len(data))
+#for el in data:
+#  print(el)
+#nums = [5, 7, 8]
+#print(nums)
+#new_data = tuple(nums) # список в кортеж
+#print(new_data)
+#word = 'Hello world'
+#print(word)
+#new_word=tuple(word) # word = tuple 'Hello world'
+#print(new_word)
+#-----------------------------------
+
+#DICTIONARY
+country = {'code': 'UA', 'name': 'Ukraine', 'population': 44}
+#country = dict (code='UA', name = 'Ukraine')
+#print(country['name'])
+#print (f"DICTIONARY{country}")
+#print(country.items())
+#for key, value in country.items():
+#  print(key, " - ", value)
+#print(country['code'])
+#print(country.get('name'))
+#country.clear() #очищает весь словарь
+#country.pop('population') #удаляет определенный элемент по ключу
+#country.popitem() #удаляет последний элемент
+#print(country.keys())
+#print(country.values())
+#print (country)
+#print (country.items())
+#country['population'] = 30
+#print(country.items())
+
+#person = {
+#  'user_1':{
+#    'first_name': 'John',
+#    'last_name': 'Marley',
+#    'age': 45,
+#    'address':('Kuev', 'street 1', '21'),
+#    'grades': {'math':5, 'physics':3}
+#  },
+#  'user_2':{
+#    'first_name': 'Volodimir'
+#  } 
+#}
+#print (person['user_1']['address'][1])
