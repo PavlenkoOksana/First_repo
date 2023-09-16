@@ -118,7 +118,7 @@ word = 'fooTThball, wollEYball, tEnnis'
 #-----------------------------------
 
 #DICTIONARY
-country = {'code': 'UA', 'name': 'Ukraine', 'population': 44}
+#country = {'code': 'UA', 'name': 'Ukraine', 'population': 44}
 #country = dict (code='UA', name = 'Ukraine')
 #print(country['name'])
 #print (f"DICTIONARY{country}")
@@ -150,3 +150,69 @@ country = {'code': 'UA', 'name': 'Ukraine', 'population': 44}
 #  } 
 #}
 #print (person['user_1']['address'][1])
+
+#  1 - Найти площадь и периметр прямоугольного треугольника
+#import math
+#a=input ("Enter katet 1 :")
+#b= input ("Enter katet 2 :")
+#s=float(a)*float (b)/2
+#print (f"area of a right triangle = {s} sm")
+#p=math.sqrt(float(a)*float(a)+float(b)*float(b))+float(a)+float(b)
+#print (f"perimetr of a right triangle = {p} sm")
+
+# 2 Обмен значений переменных
+#a=input ("enter the value of variable 1: ")
+#b = input("enter the value of variable 2: ")
+#c = a
+#a = b
+#b = c
+#print(f"Exchange of variable values: a = {a}, b = {b}")
+#variant 2
+#a=input ("enter the value of variable 1: ")
+#b = input("enter the value of variable 2: ")
+#c = input("enter the value of variable 3: ")
+#a, b, c = c, b, a
+#print(f"Exchange of variable values: a = {a}, b = {b}, c = {c}")
+
+# 3 Сумма цифр трехзначного числа
+#abc = int(input ("enter a three-digit number: "))
+#c = abc%10
+#abc=abc//10
+#b = abc%10
+#a = abc//10
+#print(a + b + c)
+# variant 2
+#abc = int(input ("enter a three-digit number: "))
+#c = abc%10
+#b = abc%100//10
+#a = abc//100
+#print(a + b + c)
+#variant 3
+#abc = input ("enter a three-digit number: ")
+#a = int (abc[0])
+#b = int (abc[1])
+#c = int (abc[2])
+#print(a + b + c)
+
+# 4 Найти корни квадратного уравнения
+#import math
+#a = float(input("Enter a(not egual 0): "))
+#if a==0:
+#  print ("ERROR a = 0 !!!!")
+#else:
+#  b = float(input("Enter b: "))
+#  c = float(input("Enter c: "))
+#  d=b**2 - 4*a*c 
+#  if d<0:
+#    print ("корней нет")
+#  elif d==0:
+#    x = (-b)/(2*a)
+#    print (f"есть один корень x = {x}")
+#  else:
+#    x1 = (-b+math.sqrt(d))/(2*a)
+#    x2 = (-b-math.sqrt(d))/(2*a)
+#    print (f"есть два различных корня x1 = {x1} u x2 = {x2}")
+  
+  # Найти площадь прямоугольника, треугольника или круга
+
+
