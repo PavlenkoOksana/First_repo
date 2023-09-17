@@ -291,17 +291,16 @@ word = 'fooTThball, wollEYball, tEnnis'
 #print ("inverted number = ", mun)
 
 # Перевернуть список
-#str = input("введите строку для реверсии :")
+#str = input("введите строку для реверсии: ")
 #str_list = list(str)
-#str_list.reverse()
+#str_list.reverse()   
 #str2="".join(str_list)
 #print ("перевернутое значение :", str2)
 
 #variant2
-#str=input("!!!")
+#str=input("введите строку для реверсии: ")
 #str1 = str[::-1]
 #print (str1)
-
 
 #variant3
 #from random import randint
@@ -311,3 +310,4 @@ word = 'fooTThball, wollEYball, tEnnis'
 #n2 = n1[::-1]
 #n2 = int(n2)
 #print('"Обратное" ему число:', n2)
+
