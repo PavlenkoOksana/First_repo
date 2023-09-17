@@ -311,3 +311,15 @@ word = 'fooTThball, wollEYball, tEnnis'
 #n2 = int(n2)
 #print('"Обратное" ему число:', n2)
 
+a = 28
+print(type (a))
+b = (28,)
+print(type (b))
+c = tuple ((28,))
+print(type(c))
+d= [28]
+print(type (d))
+str = "hello world"
+print(type(str))
+e = list(str)
+print (type (e))      
