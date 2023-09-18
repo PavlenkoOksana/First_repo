@@ -373,3 +373,48 @@ word = 'fooTThball, wollEYball, tEnnis'
 #print ("even =", even, " odd = ", odd)
 
 #Программа "Простейший калькулятор"
+#print("0 в качестве знака операции завершит работу программы\n")
+#while True:
+#  c = input("Enter computational operation (+, -, *, /) ")
+#  if c=="0":
+#    print ("End")
+#    break
+#  if c in "+-/*":
+#    a = float(input("Enter the number 1: "))
+#    b = float(input("Enter the number 2: "))
+#    if c == "+": 
+#     print ("Result: ", a+b)
+#    if c=="-":
+#     print ("Result: ", a-b)
+#    if c=="*":
+#     print ("Result: ", a*b)
+#    if c=="/":
+#     if b!=0:
+#       print ("Result: ", a/b)
+#     else:
+#       print ("Division by zero!")
+#  else:
+#    print ("Invalid operation sign!")
+
+#Вычисление факториала
+#n = input("Enter the number: ")
+#factorial = 1
+#if n.isdigit():
+#  n1 = int(n)
+#  while n1 > 0:
+#   factorial=factorial*n1
+#   n1=n1-1
+#  print (f"Factorial of a number {n} = {factorial}")
+#else:
+#  print ("input error, you entered the wrong number")
+
+#variant 3
+#n = input("Enter the number: ")
+#factorial = 1
+#if n.isdigit():
+#  for i in range (2, int(n)+1):
+#    factorial=factorial*i
+#  print (f"Factorial of a number {n} = {factorial}")
+#else:
+#  print ("input error, you entered the wrong number")
+
