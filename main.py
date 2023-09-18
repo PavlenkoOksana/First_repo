@@ -311,15 +311,65 @@ word = 'fooTThball, wollEYball, tEnnis'
 #n2 = int(n2)
 #print('"Обратное" ему число:', n2)
 
-a = 28
-print(type (a))
-b = (28,)
-print(type (b))
-c = tuple ((28,))
-print(type(c))
-d= [28]
-print(type (d))
-str = "hello world"
-print(type(str))
-e = list(str)
-print (type (e))      
+#Возведение чисел в степень до заданного предела
+#p=int(input("Введите степень числа: "))
+#n = int(input("Введите число, которое нельзя превосходить: "))
+#i=1
+#while i**p <= n:
+#  print (i**p, end=' ')
+#  i+=1
+#print ("Последнее число, возведенное в степень: ", i-1)
+
+#Сумма и произведение цифр числа
+#n = abs(int(input("Enter the number: "))) 
+#sum = 0
+#mult = 1
+#if n==0:
+#  mult=0
+#else:
+#  while n>0:
+#   if (n%10)!=0:       #доп условие: если в числе встречается цифра 0, то мы ее не учитываем при сумме и умножении; (n%10)!=0 можно заменить на n%10, так как если это равно нулу, то это ложь
+#     sum = sum + n%10
+#     mult=mult*(n%10)
+#   n=n//10
+#print("Sum of digits of a given number = ", sum, "; Product of the digits of a given number =", mult)  
+
+
+#Посчитать четные и нечетные цифры числа
+#n = int(input("Enter the number: "))
+#even = 0
+#odd = 0
+#while n>0:
+#  if n%2==0:
+#    even+=1
+#    n=n//10
+#  else:
+#    odd+=1
+#    n=n//10
+#print ("even =", even, " odd = ", odd)
+
+# variant 2
+#a=input("Enter the number: ")
+#even=0
+#odd=0
+#for i in a:
+#  i= int(i)
+#  if i%2==0:
+#    even+=1
+#  else:
+#    odd+=1
+#print ("even =", even, " odd = ", odd)
+
+#variant 3
+#a = input("Enter the number: ")
+#d="02468"
+#even=0
+#odd=0
+#for i in a:
+#  if i in d:
+#    even+=1
+#  else:
+#    odd+=1
+#print ("even =", even, " odd = ", odd)
+
+#Программа "Простейший калькулятор"
