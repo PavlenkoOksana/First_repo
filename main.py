@@ -462,7 +462,7 @@
 #  print("input error, you entered the wrong number")
 
 #variant 3 с помощью цикла for
-#n = int(input ("Enter the serial number of the Fibonacci number: "))
+#n = int(input ("Enter the serial number of the Fibonac      ci number: "))
 #fib1=fib2=1
 #print ("Fibonacci sequence ", fib1, fib2, end=' ')
 #for i in range (2, n):
@@ -471,3 +471,9 @@
 #  fib2=fib
 #  print (fib2, end=' ')
 #print(f"\nNumber of the Fibonacci digit {n}: {fib2}")
+
+str=input("Enter your name >>>>")
+str_upper=str.upper()
+print(str)
+print (str_upper)
+print ("fkfkfk")
