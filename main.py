@@ -76,7 +76,7 @@
 #print (user_list)
 
 #STRING
-word = 'fooTThball, wollEYball, tEnnis'
+#word = 'fooTThball, wollEYball, tEnnis'
 #print(word)
 #print (len(word))
 #print(word.count('r'))
@@ -418,3 +418,56 @@ word = 'fooTThball, wollEYball, tEnnis'
 #else:
 #  print ("input error, you entered the wrong number")
 
+#Числа Фибоначчи: циклом и рекурсией
+#n = input ("Enter the serial number of the Fibonacci number: ")
+#fib1=1
+#fib2=1
+#fib_str=[fib1, fib2]
+#i=3
+#if n.isdigit ():
+#  if int(n) ==1:
+#    fib=fib1
+#  elif int(n)==2:
+#    fib=fib1
+#  else:
+#    while i<=int(n):
+#     fib=fib1+fib2
+#     fib1=fib2
+#     fib2=fib
+#     i+=1
+#     fib_str.append(fib)
+#  print(f"Number of the Fibonacci digit {n}: {fib}")
+#  print(f"Fibonacci sequence up to digit {n}: {fib_str}")
+#else: 
+#  print("input error, you entered the wrong number")
+
+
+  #variant 2
+
+#n = input ("Enter the serial number of the Fibonacci number: ")
+#fib1=1
+#fib2=1
+#fib_str=[fib1, fib2]
+#i=0
+#if n.isdigit ():
+#  while i<(int(n)-2):
+#   fib=fib1+fib2
+#   fib1=fib2
+#   fib2=fib
+#   i+=1
+#   fib_str.append(fib)
+#  print(f"Number of the Fibonacci digit {n}: {fib2}")
+#  print(f"Fibonacci sequence up to digit {n}: {fib_str}")
+#else: 
+#  print("input error, you entered the wrong number")
+
+#variant 3 с помощью цикла for
+#n = int(input ("Enter the serial number of the Fibonacci number: "))
+#fib1=fib2=1
+#print ("Fibonacci sequence ", fib1, fib2, end=' ')
+#for i in range (2, n):
+#  fib=fib1+fib2
+#  fib1=fib2
+#  fib2=fib
+#  print (fib2, end=' ')
+#print(f"\nNumber of the Fibonacci digit {n}: {fib2}")
