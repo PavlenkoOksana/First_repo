@@ -472,8 +472,138 @@
 #  print (fib2, end=' ')
 #print(f"\nNumber of the Fibonacci digit {n}: {fib2}")
 
-str=input("Enter your name >>>>")
-str_upper=str.upper()
-print(str)
-print (str_upper)
-print ("fkfkfk")
+# user_name = input("Enter your name: ")
+
+# if user_name:
+#     print(f"Hello {user_name}")
+# else:
+#     print("Hi Anonym!")
+
+# Винятки у Python
+# val = input ("Enter number: ")
+# try:
+#   val=int(val)
+# except ValueError:
+#   print ("This is not a number")
+# else: 
+#   print (val>0)
+# finally:
+#   print ("This will be printed anyway")
+
+# age = input("How old are you? ")
+# try:
+#   age = int(age)
+#   if age >= 18:
+#     print(">=18")
+#   else:
+#     print ("Kinder")
+# except ValueError:
+#   print ("This is not a number") 
+# finally:
+#   print("This is the end")
+
+# is_active = bool(input("Is the user active? "))
+# is_admin = bool(input("Is the user administrator? "))
+# is_permission = bool(input("Does the user have access? "))
+# print (is_active, is_admin, is_permission)
+# print (type(is_active), type (is_admin), type (is_permission) )
+# access = is_admin or (is_permission and is_active)
+# print (access)
+
+# У Python також існує короткий варіант тернарного оператора.
+# some_data = None
+# message = some_data or "Not data"
+# print(message)
+
+# ЗАВДАННЯ: НАЙБІЛЬШИЙ СПІЛЬНИЙ ДІЛЬНИК
+# first = int(input("Enter the first integer: "))
+# second = int(input("Enter the second integer: "))
+
+# gcd = first if first <= second else second
+# while first%gcd != 0 or second%gcd != 0:
+#     gcd = gcd-1
+# print (gcd)
+
+
+# num = int(input("Enter integer (0 for output): "))
+# sum = 0
+# for i in range (0, num + 1):
+#   sum = sum + i
+# while num !=0:
+#   num = int (input("Enter integer (0 for output): "))
+#   for i in range (0, num + 1):
+#     sum = sum + i
+# print (sum)    
+
+              # #  message = input("Enter a message: ")
+              # #  offset = int(input("Enter the offset: "))
+              # #  encoded_message = ""
+              # #  for ch in message:
+    
+#ЗАВДАННЯ: КОД ЦЕЗАРЯ
+# message = input("Enter a message: ")
+# offset = int(input("Enter the offset: "))
+# encoded_message = ""
+# encoded_list = list()
+# for ch in message:
+#     if ch.isalpha() and ch.islower():
+#         pos = ord(ch) - ord('a')  
+#         pos = (pos + offset) % 26
+#         new_char = chr(pos + ord("a")) 
+#         encoded_list.append(new_char)
+#     elif ch.isalpha() and ch.isupper():
+#         pos = ord(ch) - ord('A')  
+#         pos = (pos + offset) % 26
+#         new_char = chr(pos + ord("A")) 
+#         encoded_list.append(new_char)
+#     else:
+#         encoded_list.append(ch)  
+# encoded_message = ''.join(encoded_list)
+# print(encoded_message)
+
+#Напишіть програму, яка буде виконувати найпростіші математичні операції з числами послідовно, приймаючи від користувача операнди (числа) та оператор.
+
+# result = None
+# operand = None
+# operator = None
+# prew_num = None
+# wait_for_number = True
+
+# while True:
+#   v = input(">>> ")
+#   if v == "=":
+#     print (result)
+#     break
+#   elif wait_for_number == True: 
+#          try:
+#              operand = int(v)
+#          except ValueError:
+#              print (f"{v} is not a number. Try again")
+#          else:
+#             print("Sie haben eine Zahl eingegeben")
+#             wait_for_number = False
+#             if result != None:
+#                 if operator == "+":
+#                     result = result+operand
+#                 elif operator == "-":
+#                     result = result-operand
+#                 elif operator == "*":
+#                     result = result*operand
+#                 elif operator == "/":
+#                     result = result/operand    
+#             elif result == None:
+#                 result = operand
+                       
+#   elif wait_for_number == False:
+#         if v in "+-/*": 
+#           wait_for_number = True
+#           print("Sie haben eine Aktion eingegeben")
+#           operator = v
+#         else:
+#           print (f"{v} is not a math operator")
+           
+
+
+
+
+
