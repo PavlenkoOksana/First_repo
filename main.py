@@ -151,6 +151,86 @@
 #}
 #print (person['user_1']['address'][1])
 
+# МНОЖЕСТВА = список без повторяющехся элементов
+# data = set ("hello")
+# print (data)
+# data = {5, 7, 4, 3, 5}
+# #data[0]=43 #!!!!НЕЛЬЗЯ
+# data.add (32)
+# data.update (["32", True, 4, 6])
+# data.remove(True)
+# data.pop()
+# data.clear()
+# print (data)
+# nums = [5, 7, 3, 5, 5]
+# nums = set (nums)
+# print (nums)
+# # Frousen set (mix set and tuple)
+# new_data = frozenset([5, 7, 4, "32", True, 4, 6, 5, 7, 4, 3, 5])
+# print(new_data)
+
+#FUNCTION
+# def test_func(): 
+#   pass # nothing 
+#   print ("HELLO", end="")
+#   print ("!")
+   
+# test_func()
+
+# def test_func(word): 
+#   pass # nothing 
+#   print (word, end="")
+#   print ("!")
+   
+# test_func("Hi")
+# test_func (5)
+
+# def summa(a,b):
+#   res = a+b
+#   return (res)
+
+# # summa (5, 7)
+# print (summa ("Hi-", "hi"))
+
+# res = summa (5.7, 7.5)
+# print (res)
+
+# create list and find min
+# nums1 = [5, 7, 9, 2, 4]
+# min = nums1[0]
+# for el in nums1:
+#   if el < min:
+#     min = el
+# print (min)
+
+# nums2 = [5.4, 7.2, 2.3, 2.1, 9.4, 4.2]
+# min2 = nums2[0]
+# for el in nums2:
+#   if el < min2:
+#     min2 = el
+# print (min2)
+
+# variant with Function
+# def minimal (l):
+#   min_num = l[0]
+#   for el in l:
+#     if el < min_num:
+#       min_num = el
+#   return min_num
+
+# nums1 = [5, 7, 9, 2, 4]
+# min1=minimal (nums1)
+# nums2 = [5.4, 7.2, 2.3, 2.1, 9.4, 4.2]
+# min2= minimal (nums2)
+# print (min1, min2)
+
+#LAMBDA
+# fun = lambda x, y:x*y
+# print(fun (5, 2))
+
+
+#-----------------------------------------------------
+
 #  1 - Найти площадь и периметр прямоугольного треугольника
 #import math
 #a=input ("Enter katet 1 :")
@@ -602,7 +682,38 @@
 #         else:
 #           print (f"{v} is not a math operator")
            
-
+# Перевод из десятичной системы счисления в двоичную
+# bin_str=""
+# while True:
+#    decimal_num = input("Enter decimal number: >>>  ")
+#    try:
+#       decimal_num = int(decimal_num)
+#    except ValueError:
+#       print(f"!!!{decimal_num} is not a number. Try again") 
+#    else:
+#       while decimal_num >0:
+#         bin_str = str (decimal_num%2) + bin_str
+#         decimal_num = decimal_num//2
+#       print (bin_str)
+#       break
+      
+# # variant 2 with list
+# bin_list = []
+# while True:
+#   decimal_num = input("Enter decimal number: >>>  ")
+#   try:
+#       decimal_num = int(decimal_num)
+#   except ValueError:
+#       print (f"!!!{decimal_num} is not a number. Try again") 
+#   else: 
+#      while decimal_num > 0:
+#          bin_list.append(decimal_num%2)
+#          decimal_num = decimal_num//2
+         
+#      bin_list.reverse()
+#      for i in bin_list:
+#         print (i, end="")
+#      break
 
 
 
