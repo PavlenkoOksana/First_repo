@@ -542,7 +542,7 @@
 #  print("input error, you entered the wrong number")
 
 #variant 3 с помощью цикла for
-#n = int(input ("Enter the serial number of the Fibonac      ci number: "))
+#n = int(input ("Enter the serial number of the Fibonacci number: "))
 #fib1=fib2=1
 #print ("Fibonacci sequence ", fib1, fib2, end=' ')
 #for i in range (2, n):
@@ -551,6 +551,16 @@
 #  fib2=fib
 #  print (fib2, end=' ')
 #print(f"\nNumber of the Fibonacci digit {n}: {fib2}")
+
+# variant 4 рекурсия
+# def fibonacci(n):
+#   if n==0:
+#     return 0
+#   if n in (1, 2):
+#     return 1
+#   return fibonacci(n-1)+fibonacci(n-2)
+
+# print(fibonacci(6))
 
 # user_name = input("Enter your name: ")
 
@@ -715,6 +725,100 @@
 #         print (i, end="")
 #      break
 
+# number = int(input (">>> "))
+# for i in range (number):
+#   if i%2==1:
+#     print (i, "Number is odd")
+#   else:
+#     print (i, "Number is NOT odd") 
 
+# name = input ("Enter name: ")
+# res=""
+# for char in range (len(name)):
+#   if char%2==1:
+#     res=res+name[char].upper()
+#   #  continue
+#   # else:
+#   res=res+name[char]
+# print (res)
+    
+# def total(a=5, *numbers, **phone_book):
+#     print('a', a)
+#     # прохід по всіх елементах кортежу
+#     for single_item in numbers:
+#         print('single_item', single_item)
+
+#     #прохід по всіх елементах словника
+#     for first_part, second_part in phone_book.items():
+#         print(first_part,second_part)
+
+# print(total(10, 1, 2, 3, Jack=1123, John=2231, Inge=1560))
+
+# def discount_price(price, discount):
+#     def apply_discount():
+#         nonlocal price
+#         nonlocal discount
+#         price = price - price*discount
+#     print (price) # цена до вызова функции apply_discount()
+#     apply_discount()
+#     print (price) # цена после вызова функции apply_discount()
+#     return price 
+        
+# print ("Price with discount: ", discount_price(100, 0.1))
+
+# def get_fullname (first_name, last_name, middle_name=""):
+#   if middle_name=="":
+#     return first_name + " " +last_name
+#   else:
+#     return first_name + " " + middle_name + " " + last_name
+#print (get_fullname("Oksana", "Pavlenko", "Oleksandrivna"))    
+
+# def format_string(string, length):
+#   d = (int (length) - len(string))//2
+#   if len(string) >= int (length):
+#     return string
+#   else: 
+#     return " "*d + string
+  
+# print(format_string(length=15, string='abaa'))
+# def first(size, *arg):
+#     return int(size)+len(arg) 
+
+# print (first(5, "first", "second", "third"))
+# print (first(1, "Alex", "Boris"))
+
+# def second(size, **kl_arg):
+#      return int(size)+len(kl_arg) 
+
+# print(second(3, comment_one="first", comment_two="second", comment_third="third"))
+# print(second(10, comment_one="Alex", comment_two="Boris"))
+
+# def cost_delivery(quantity, *product, discount=0):
+#     if int(quantity) == 1:
+#         return 5 - 5*discount
+#     elif int(quantity) >= 2:
+#         return 5 + 2*(int(quantity)-1)- (5 + 2*(int(quantity)-1))*discount
+
+# print (cost_delivery(5, discount=0.5))
+
+#рядки документації
+# def fun(a, b=2, c=3):
+#     """Знаходить суму трьох параметрів.
+
+#      Перший параметр обов'язковий, два інших за замовчанням дорівнюють 2 і 3"""
+#     return a + b * c
+
+# print(fun.__doc__)
+
+# Ми проводимо розіграш призів серед перших 50 підписників ютуб-каналу. Ми маємо 7 призів для розіграшу. Може виникнути питання, скільки різних списків переможців ми можемо отримати під час розіграшу? Для цього ми будемо використовувати формулу сполучень без повторень C= n! / ((n - k)! · k!) де n — це загальна кількість людей (випадків), а k — кількість людей, які отримали призи.
+
+# def factorial(n):
+#   if n < 2:
+#     return 1
+#   else:
+#     return n*factorial(n-1)
+
+# def number_of_groups(n, k):
+#   return int(factorial(n)/(factorial(n - k)* factorial(k)))
 
 
