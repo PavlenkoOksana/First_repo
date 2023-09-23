@@ -821,4 +821,102 @@
 # def number_of_groups(n, k):
 #   return int(factorial(n)/(factorial(n - k)* factorial(k)))
 
+#Алгоритм Евклида - нахождение наибольшего общего делителя
+# aa = input ("Enter a first number: ")
+# bb = input ("Enter a second number: ")
+# nod= None
+# try:
+#   a = int(aa)
+#   b = int (bb)
+# except ValueError:
+#   print ("a or/and b are not a number. Try again")
+# else:
+#   while True:
+#    if a>=b:
+#     if a%b==0:
+#       nod = b
+#       break
+#     else:
+#       a = a%b
+#    else:
+#     if b%a==0:
+#       nod=a
+#       break
+#     else:
+#       b = b%a
+# print (f"greatest common divisor {aa} and {bb} = ", nod)
+
+# variant 2
+# a = int(input ("Enter a first number: "))
+# b = int(input ("Enter a second number: "))
+# while a!=0 and b !=0:
+#   if a>b:
+#     a= a%b
+#   else:
+#     b=b%a
+# print (f"greatest common divisor = ", a+b)
+
+# variant 3 Алгоритм нахождения НОД вычитанием
+# a = int(input ("Enter a first number: "))
+# b = int(input ("Enter a second number: "))
+# while a!=b:
+#   if a>b:
+#     a = a-b
+#   else:
+#     b=b-a
+
+# print (f"greatest common divisor = ", a)
+
+# # variant 4 Функция, вычисляющая НОД
+# def nod (a, b):
+#   while a!=b:
+#    if a>b:
+#      a = a-b
+#    else:
+#      b=b-a
+#   return a   
+
+# while True:
+#   aa = input ("Enter a first number: ")
+#   bb = input ("Enter a second number: ")
+#   try:
+#     aa=int(aa)
+#     bb=int(bb)
+#   except ValueError:
+#     print ("a or/and b are not a number. Try again")
+#   else:
+#     print(f"greatest common divisor = ", nod(aa, bb))
+#     break
+
+# Проверка простоты числа перебором делителей
+# from math import sqrt
+# a = int(input ("Enter a number: "))
+# prime = True
+# for i in range(2, int(sqrt(a)+1)):
+#   if a%i == 0:
+#     prime = False
+#     break
+#   else:
+#     i+=1
+# if prime: 
+#   print(f"number {a} is a prime number")
+# else:
+#   print(f"number {a} is a composite number")
+
+#varian function   
+# from math import sqrt
+# def is_prime (n):
+#   i=2
+#   while i<=int(sqrt(n)):
+#     if n%i ==0:
+#       return False
+#     i+=1
+#   if n>1:
+#     return True
+
+# k = int(input(">>> "))
+# print (is_prime (k))
+               
+
+
 
