@@ -917,6 +917,59 @@
 # k = int(input(">>> "))
 # print (is_prime (k))
                
+#Проверить уникальность элементов списка
+# data = [5, 7, 4, 3, 5]
+# for i in range(0, 5):
+#   for j in range (i+1, 5):
+#     if data[i]==data[j]:
+#       print("No unic")
+#       quit()
+# print (type(data))
+# print ("unic")
 
+#variant 2
+# data = [5, 7, 4, 3, 6]
+# setarr=set(data)
+# if len(setarr)!=len (data):
+#   print("No unic")
+# else: 
+#   print ("unic")
 
+#variant 3
+# data = [5, 7, 1, 3, 2]
+# for item in data:
+#   if data.count(item)>1:
+#      print("No unic")
+#      break
+# else: # В программе выше ветка else цикла for срабатывает только в случае, если работа цикла не была прервана с помощью оператора break.
+#     print("unic")
+
+#variant 4 определить неуникальные элементы
+# data = [5, 7, 1, 3, 2, 7, 7, 5, 8, 0]
+# for item in data:
+#   count = data.count(item)
+#   if count>1:
+#     print (f"element {item} meet {count} time")
+
+#Чтобы исключить из перебора повторы значений, мы можем преобразовать список во множество. После этого перебирать в цикле элементы множества, которые уникальны.
+# data = [5, 7, 1, 3, 2, 7, 7, 5, 8, 0]
+# setdata=set(data)
+# for item in setdata:
+#   count = data.count(item)
+#   if count>1:
+#     print (f"element {item} meet {count} time")
+
+#Удаление элементов списка по условию
+# data = [96, 72, 44, 22, 35, 29, 97, 69, 25, 12]
+# del_data = []
+# i=0
+# while i < len (data):
+#     if 20 < data[i] < 90:
+#         del_data.append(data[i])
+#         del data[i]
+#     else:
+#         i+=1
+ 
+# print("data =", data)
+# print("del_data =", del_data)
 
