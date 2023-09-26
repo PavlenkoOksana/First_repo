@@ -195,6 +195,54 @@
 # res = summa (5.7, 7.5)
 # print (res)
 
+#FILE 
+# w пишит в файл ( перезаписывает)  и если файла не сущ, то создает его, a добавляет новую инфо ( в дополнение к старой), r read если файла не сущ, то выдает ошибку
+# запись данных
+# data = input ("Enter text ")
+# file = open ('text.txt', 'a')
+# file.write("Hello!!!\n")
+# file.write(data+"\n")
+# file.close()
+
+#считывание данных
+#file = open('text.txt', 'r')
+#print(file.read(1)) # read and print 1 symbol
+#print(file.read()) # read and print all text in file
+# for line in file:
+#   print(line) # read string
+# file.close()
+
+#EXCEPT
+# i = True
+# while i:
+#   try:
+#     x = int(input ("Enter a number "))
+#     x +=5
+#     print(x)
+#     i = False
+#   except ValueError:
+#     print ("Enter better a number")
+
+# try:
+#   x=5/1
+#   x = int (input(">>> "))
+# except ZeroDivisionError:
+#   print ("ZeroDivisionError")
+# except ValueError:
+#   print ("You enter samth wrong")
+# else:
+#   print ("else")
+# finally:
+#   print("Finally")
+
+# # WITH... as открывает и потом сразу закрывает файл, то есть file.close() не нужен
+# try:
+#   with open ('text.txt', 'r', encoding='utf-8') as file:
+#     print(file.read())
+# except FileNotFoundError:
+#   print ("File not found")
+
+
 # create list and find min
 # nums1 = [5, 7, 9, 2, 4]
 # min = nums1[0]
@@ -972,4 +1020,71 @@
  
 # print("data =", data)
 # print("del_data =", del_data)
+
+#Пересечение списков, совпадающие элементы двух списков
+# l1 = [0, 3, 8, True, [1, 2], 'a']
+# l2 = ['b', [1, 2], 8, True, 2, 5, 122, 'a']
+# l3=[]
+# for it1 in l1:
+#   for it2 in l2:
+#     if it1==it2:
+#       l3.append(it1)
+#       break
+# print (l3)
+
+#variant 2
+# l1 = [0, 3, 8, 3, 3, True, [1, 2], 'a', 3]
+# l2 = ['b', [1, 2], 8, 3, True, 2, 3, 5, 3, 122, 'a']
+# l3=[]
+# for it1 in l1:
+#   if it1 in l2 and it1 not in l3:
+#       l3.append(it1)
+# print (l3)
+
+# variant 3 Пусть если в обоих списках есть по несколько одинаковых значений, они должны попадать в список совпадающих элементов в том количестве, в котором встречаются в списке, где их меньше. 
+# l1 = [5, 2, 4, 'r', 4, 'ee', 1, 1,  4]
+# l2 = [4, 1, 'we', 'ee', 'r', 4, 1, 1]
+# l3=[]
+# for it1 in l1:
+#   if it1 not in l3:
+#      t = l1.count(it1) if l1.count(it1) < l2.count(it1) else l2.count(it1)
+#      #l3 += [it1] * t так тоже можно добавить элемент it1 в список t раз
+#      for i in range(t):
+#        l3.append(it1)
+# print (l3)
+
+# variant - вариант с переводом списков во множества, не работает, если список содержит в кач-ве элемента другие списки 
+# l1 = [0, 3, 8, True, 'a']
+# l2 = ['b', 8, True, 2, 5, 122, 'a']
+# print (list(set(l1) & set(l2)))
+
+# #Двоичный, или бинарный, поиск элемента
+# l1 = [5, 2, 4, 26, 35, 28, 11, 19, 34]
+# l2 =[]
+# #l1.sort() # функция по сортировке списка
+# for i in range (len(l1)):
+#   for j in range (i, len (l1)):
+#     if l1[i]>l1[j]:
+#       tr = l1[i]
+#       l1[i] = l1[j]
+#       l1[j] = tr
+# print (l1)
+# value = int(input (">>> "))
+# low=0
+# high = len(l1) - 1
+# mid = len(l1)//2
+# while l1[mid] != value and low <= high:
+#   if value > l1[mid]:
+#     low = mid + 1
+#   else:
+#     high = mid - 1
+#   mid = (low + high)//2
+# if low > high:
+#   print ("No value")
+# else:
+#   print ("ID= ", mid)   
+ 
+   
+
+
 
