@@ -1414,13 +1414,3 @@
 
 # print(parse_folder(Path('C:/Users/kompik/Downloads')))
 
-import sys
-
-
-def parse_args():
-    result = ""
-    
-        
-            
-        
-    return result
