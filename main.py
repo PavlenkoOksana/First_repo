@@ -1083,8 +1083,344 @@
 #   print ("No value")
 # else:
 #   print ("ID= ", mid)   
- 
+
+#Function
+# def pr (n, str="Default value"): # definition визначення, все после def называется сигнатурой функции (название, параметры)
+#   for _ in range(n):
+#     print (str)
+
+# pr(2) # call, callable
+# #pr (n=2, str = "Hello world")
    
+#функция считает кол во слов в тексте
+# def count_words (text):
+#   words = text.split ()
+#   print(words)
+#   return len(words)
+#   # n=0
+#   # for _ in text
+
+# res= count_words ("hfhfj jdjdj djdjjf djdjf")
+# print (res)
+
+# def add(*args):
+#   total=0
+#   for i in args:
+#     total+=i
+#   print (type(args))
+#   return total
+# res=add (1,2,3,4)
+# print ("sum is: ", res)
+
+# def fib_recursive (n):
+#   if n<=1:
+#     return n
+#   else:
+#     return fib_recursive(n-1)+fib_recursive(n-2)
+
+# def fib_iter(n):
+#   if n==1:
+#     return [1]
+#   if n==2:
+#     return [1,1]
+#   fibs = [1, 1]
+#   for _ in range (2, n):
+#     fibs.append(fibs[-1]+fibs[-2])
+#   return fibs
+
+#print(fib_recursive(5))
+
+# from pathlib import Path
+
+# p = Path('C:/Users/kompik/Downloads')    # p Вказує на папку /home/user/Downloads
+# for i in p.iterdir():
+#      print(i.name)   # Виведе у циклі імена всіх папок та файлів у /home/user/Downloads
+
+# print(p.exists())
+
+#payment = [100, -1, 1200, 800, -100]
+
+# def prepare_data(data):
+#   min = data[0]
+#   max = data[0]
+#   for el in data:
+#      if el < min:
+#         min=el
+#      if el>max:
+#         max=el
+#   data.remove(min)
+#   data.remove(max)
+#   return sorted(data)
+
+# print(prepare_data([100, -1, 1200, 800, -100]))
+
+# def format_ingredients(items):
+#   st=""
+#   if len (items) ==1:
+#     return items[0]
+#   elif len(items) ==0:
+#     return "" 
+#   else:
+#     for i in range(len(items)-2):
+#         st = st + items[i] + ", "
+#     st = st + items[-2] + " and " +  items[-1]
+#   return st
+
+# print(format_ingredients(["2 eggs", "1 liter sugar"]))
+
+# lang = {"Python": 1991, "Java": 1995}
+# java = lang.get("Java", 1991)  # 1995
+# js = lang.get("JS", "NO JS")  # 1995
+# pascal = lang.get("Pascal")  # None
+
+# print(java)
+# print (js)
+# print(pascal)
+
+# person = {
+#  'user_1':{
+#    'first_name': 'John',
+#    'last_name': 'Marley',
+#    'age': 45,
+#    'address':('Kuev', 'street 1', '21'),
+#    'grades': {'math':5, 'physics':3}
+#  },
+#  'user_2':{
+#    'first_name': 'Volodimir'
+#  } 
+# }
+# #print (person['user_1']['address'][1])
+# print(person['user_1']['last_name'])
+
+# rating_system = {
+#   'F':{
+#     'Rating': 1,
+#     'Explanation': 'Unsatisfactorily'
+#   },
+#   'FX':{
+#     'Rating': 2,
+#     'Explanation': 'Unsatisfactorily'
+#   },
+#   'E':{
+#     'Rating': 3,
+#     'Explanation': 'Enough'
+#   },
+#   'D':{
+#     'Rating': 3,
+#     'Explanation': 'Satisfactorily'
+#   },
+#   'C':{
+#     'Rating': 4,
+#     'Explanation': 'Good'
+#   },
+#   'B':{
+#     'Rating': 5,
+#     'Explanation': 'Very good'
+#   },
+#   'A':{
+#     'Rating': 5,
+#     'Explanation': 'Perfectly'
+#   }
+# }
+
+# def get_grade(key):
+#    if rating_system.get(key) != None:
+#      return rating_system [key]['Rating']
+#    else:
+#     return 'None'
+
+# def get_description(key):
+#   if rating_system.get(key) != None:
+#     return rating_system [key]['Explanation']
+#   else:
+#     return 'None'
+
+# print(get_grade('AA'))
+# print(get_description('AA'))
+
+# def lookup_key(data, value):
+#   key_list = []
+#   for k, val in data.items():
+#     if val == value:
+#       key_list.append (k)
+#   return key_list
+
+# print(lookup_key({"Python": 1991, "Java": 1995, "JS": 1995}, 1990))    
+
+# def split_list(grade):
+#   less_average = list()
+#   more_average = list()
+#   sum=0
+#   if grade == []:
+#     return [], []
+#   for el in grade:
+#     sum = sum + el
+#   sum = sum/(len(grade))
+#   for el in grade:
+#     if el <= sum:
+#       less_average.append(el)
+#     else:
+#       more_average.append(el)
+#   less_tuple = tuple(less_average)
+#   more_tuple = tuple(more_average)
+#   # print (type(less_average), type(more_average))
+#   # print (type(less_tuple), type(more_tuple))
+#   # print(less_average)
+#   return less_average, more_average
+  
+# print (split_list([1, 12, 3, 24, 5]))
+
+# points = {
+#     (0, 1): 2,
+#     (0, 2): 3.8,
+#     (0, 3): 2.7,
+#     (1, 2): 2.5,
+#     (1, 3): 4.1,
+#     (2, 3): 3.9,
+# }
+
+# def calculate_distance(coordinates):
+#   sum=0
+#   for i in range(len(coordinates)-1):
+#     if coordinates[i] > coordinates[i+1]:
+#       kor = (coordinates[i+1], coordinates[i])
+#       for key in points:
+#         if key==kor:
+#           sum = sum + points[kor]      
+#     else:
+#       kor = (coordinates[i], coordinates[i+1])
+#       for key in points:
+#         if key==kor:
+#           sum = sum + points[kor]  
+
+#   return sum    
+ 
+# print(calculate_distance([0, 1, 3, 2, 0]))
+
+# def game(terra, power):
+#   for i in terra:
+#     for j in i:
+#       if j<=power:
+#         power = power + j
+#       else:
+#         break
+#   return power
+#print (game([[1, 1, 5, 10], [10, 2], [1, 1, 1]], 1))
+
+# def is_valid_pin_codes(pin_codes):
+#   valid = True
+#   num = '0123456789'
+#   if pin_codes != []:
+#      if len(pin_codes) == len(set(pin_codes)):
+#        for i in pin_codes:
+#          if (type(i)==str) and (len(i)==4):
+#            for j in i:
+#             if j not in num:
+#              valid = False
+#          else:
+#            valid = False
+#      else:
+#        valid = False
+#   else:
+#     valid = False
+#   return valid
+
+# print(is_valid_pin_codes([]))
+
+# from random import randint
+# str_pass = ''
+# print(len(str_pass))
+
+# def get_random_password():
+#   global str_pass
+#   for i in range(8):
+#     str_pass = str_pass + chr(randint(40, 126))
+#   print(len(str_pass))  
+#   return str_pass
+
+# print (get_random_password())
+
+#---------------------------
+#Генерация надежного пароля
+# from random import randint
+# def get_random_password():
+#   str_pas = ''
+#   for _ in range(8):
+#     random_num = randint(40, 126)
+#     str_pas = str_pas + chr(random_num)
+#   return str_pas
+# r = get_random_password() 
+# print(r)
+# n = get_random_password()
+# print(n)
+# print (get_random_password())    
+# print (get_random_password()) 
+    
+# def is_valid_password(password):
+#   valid = False
+#   capital_let = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+#   small_let = 'abcdefghijklmnopqrstuvwxyz'
+#   numbers = '0123456789'
+#   is_cap = False
+#   is_small= False
+#   is_number=False
+#   for el in password:
+#       if el in capital_let:
+#         is_cap = True
+#       elif el in small_let:
+#         is_small = True
+#       elif el in numbers:
+#         is_number = True
+#   if (len(password)==8) and is_cap and is_small and is_number:
+#     valid = True
+#   return valid
+
+# def get_password():
+#   p = ""
+#   i=0
+#   while i<= 0:
+#     p = get_random_password()
+#     i+=1
+#     if is_valid_password(p):
+#       return p
+
+# print (get_password())  
+
+#--------------------------------------------------------
+# from pathlib import Path
+# def parse_folder(path):
+#     files = []
+#     folders = []
+#     p = Path(path)
+#     for i in p.iterdir():
+#         if i.is_dir():
+#             folders.append(i.name)
+#         elif i.is_file():
+#             files.append(i.name)      
+#     return files, folders
+
+# print(parse_folder('C:/Users/kompik/Downloads'))
+
+# from pathlib import Path
+# def parse_folder(path):
+#     files = []
+#     folders = []
+#     for i in path.iterdir():
+#         if i.is_dir():
+#             folders.append(i.name)
+#         elif i.is_file():
+#             files.append(i.name)      
+#     return files, folders
+
+# print(parse_folder(Path('C:/Users/kompik/Downloads')))
+
+import sys
 
 
-
+def parse_args():
+    result = ""
+    
+        
+            
+        
+    return result
