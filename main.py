@@ -1414,3 +1414,112 @@
 
 # print(parse_folder(Path('C:/Users/kompik/Downloads')))
 
+# функция, в которую предается другая функция в качестве аргумента
+# def another_func():
+#   print("Hello")
+
+# def func(another_func):
+#   another_func()
+#   print ("world")
+
+# print(type(another_func))
+# print (func(another_func))
+
+# def is_polindrom(text):
+#   rev = text[::-1]
+#   print(rev)
+#   return rev ==text
+
+# print(is_polindrom([1, 2, 2, 1, 12, 134]))
+
+#считает элем списка, которые повторяются больше чем к раз
+# a = [4, 6, 4, 3, 3, 4, 3, 7, 8, 8]
+# k=3
+# print ("original ist: ", a)
+# res = list()
+# for i in a:
+#   freg = a.count(i)
+#   if freg >= k and i not in res:
+#     res.append(i)
+  
+# print(res)
+
+# a = [1, [1, 2, [1, 2, 3, [1, 23]]]]
+# print(a)
+# print (a[1][2][3][1])
+
+# circle{
+#   (0, 0): "centr",
+#   (1, 0): "360",
+#   (0, 1): "90",
+#   (-1,0): "180",
+#   (0,-1): "270"
+# }
+
+# a = (0, 0)
+
+# info = {
+#   "name": "Kelly",
+#   "age": 25,
+#   "salary": 8000,
+#   "city": "New York"
+# }
+# info.update ({"street": "street N", "email": "kelly@gmail.com"})
+
+# for i in info.values():
+#   print(i)
+
+# for i, j in info.items():
+#   print(i, j)
+
+# A = {"math": 92, "eng": 80, "fisik": 99, "social": 89}
+# B = {"math": 77, "eng": 56, "fisik": 58, "social": 99}
+# res = list()
+# for key in A:
+#   if A[key]>80:
+#     print (f"Key : {key} = {A[key]}")
+#     res.append(A[key]) 
+
+# print ("res: ", res)
+# A["English"] = A.pop("eng")    
+# print(A)
+
+# s1 = {"red", "green", "blue"}
+# print (s1, type(s1))
+# s2 = set (s1)
+# print ("set ", type(s2), s2)
+# s3 = str(s1)
+# print ("str ", type(s3), s3)
+
+# import sys
+# print(sys.argv)
+
+# for arg in sys.argv:
+#   print ("arg: ", arg)
+
+# from pathlib import Path
+# p = Path('C:/Users/kompik/Downloads')
+# print(p.parent)
+# print(p.name)
+# print(p.suffix)
+# print(p.exists())
+# print(p.is_dir())
+# print(p.is_file())
+
+# def parse_folder(path):
+#   for el in path.iterdir():
+#     if el.is_dir():
+#       print (f"This is folder: {el}")
+#     else:
+#       print(f"This is file; {el}")
+
+# def parse_file(path):
+#   for el in path.iterdir():
+#     if el.is_dir():
+#       print (f"This is folder: {el}")
+#       parse_file(el)
+#     else:
+#       print(f"This is file; {el}") 
+
+# parse_folder(p)
+# parse_file (p)
