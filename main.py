@@ -1523,3 +1523,451 @@
 
 # parse_folder(p)
 # parse_file (p)
+
+# s = "Hi there!"
+
+# start = 0
+# end = 7
+
+# print(s.find("er", start, end)) # 5
+# print(s.find("q"))  # -1
+# print(s.index("er", start, end)) # 5
+# (s.index("q"))  # -1
+
+# for i in range(16):
+#     s = "int: {0:d};  hex: {0:#x};  oct: {0:#o};  bin: {0:#b}".format(i)
+#     print(s)
+
+# width = 5
+# for num in range(12):
+#     print('{:^10} {:^10} {:^10}'.format(num, num**2, num**3))
+
+# s =  "{name!r} {last_name!s}".format(last_name="Dilan", name="Bob")
+# print(s)  # 'Bob' Dilan
+
+#print('dec: {:d} hex: {:x} bin: {:b}'.format(15, 15, 15))  # dec: 15 hex: f bin: 1111
+#print('pi: {:0.5}'.format(3.14159265358979323846))
+#print('"{}" "{:+}" "{}" "{: }"'.format(1, 2, -3, 4))  # "1" "+2" "-3" " 4"
+#print("|{:<10}|{:*^10}|{:>10}|".format('left', 'center', 'right'))  # |left      |**center**|     right|
+# import re
+# s = "I am 25 years old."
+# age = re.search('\d+', s)
+# print(age)
+# print(type(age))
+# print(age.group())  # 25
+# print(type(age.group))
+
+# def real_len(text):
+#   res = ""
+#   #ks =  ["\n", "\f", "\r", "\t", "\v"]
+#   for i in range(len(text)-1):
+#     if text[i]!='\''and (text[i+1]!="n" or text[i+1]!="f" or text[i+1]!="r" or text[i+1]!="t" or text[i+1]!="v"):
+#         res = res + text[i]
+#   res=res+text[-1]
+#   print(res)
+#   return len(res)
+
+# print(real_len("Oksana\nPavlenko"))
+
+# def real_len(text):
+#   if text.find("\n")> -1:
+#     text = text.replace("\n", "")
+#   if text.find("\f")> -1:
+#     text = text.replace("\f", "")    
+#   if text.find("\r")> -1:
+#     text = text.replace("\r", "") 
+#   if text.find("\t")> -1:
+#     text = text.replace("\t", "")   
+#   if text.find("\v")> -1:
+#     text = text.replace("\v", "") 
+#   print(text)
+#   return len(text)
+
+# print(real_len('Al\nKdf\ne23\t\v.\r'))
+# print('AlKdfe23.')    
+
+# def real_len(text):
+#   text = text.replace("\n", "")
+#   text = text.replace("\f", "")    
+#   text = text.replace("\r", "") 
+#   text = text.replace("\t", "")   
+#   text = text.replace("\v", "") 
+#   print(text)
+#   return len(text)
+
+# print(real_len('Al\nKdf\ne23\t\v.\r'))
+# print('AlKdfe23.')    
+
+# message = "У темній кімнаті всі кішки чорні (мабуть)"
+# square_brackets = message.replace("(", "[").replace(")", "]")
+# clear_brackets = message.replace("(", "").replace(")", "")
+
+# print(square_brackets)  # У темній кімнаті всі кішки чорні [мабуть]
+# print(clear_brackets)  # У темній кімнаті всі кішки чорні мабуть
+
+# articles_dict = [
+#     {
+#         "title": "Endless ocean waters.",
+#         "author": "Jhon Stark",
+#         "year": 2019,
+#     },
+#     {
+#         "title": "Oceans of other planets are full of silver",
+#         "author": "Artur Clark",
+#         "year": 2020,
+#     },
+#     {
+#         "title": "An ocean that cannot be crossed.",
+#         "author": "Silver Name",
+#         "year": 2021,
+#     },
+#     {
+#         "title": "The ocean that you love.",
+#         "author": "Golden Gun",
+#         "year": 2021,
+#     },
+# ]
+
+# def find_articles(key, letter_case=False):
+#   res = list()
+#   if letter_case:
+#     print("letter_case=True")
+#     for i in range(len(articles_dict)):
+#       if (key in articles_dict[i]["title"]) or (key in articles_dict[i]["author"]):
+#         res.append(articles_dict[i])
+#   else:
+#     print("letter_case=False")
+#     key = key.lower()
+#     for i in range(len(articles_dict)):
+#       if (key in articles_dict[i]["title"].lower()) or (key in articles_dict[i]["author"].lower()):
+#         res.append(articles_dict[i])
+#     print(key)
+#   return(res)
+      
+# print(find_articles ("ocean"))
+
+# print(articles_dict[0]["title"])
+# l.append(articles_dict[0])
+# l.append(articles_dict[1])
+# print(l)
+
+# def sanitize_phone_number(phone):
+#     san_phone=""
+#     san_phone=phone.replace(")","")
+#     san_phone=san_phone.replace("(","")
+#     san_phone=san_phone.replace(" ","")
+#     san_phone=san_phone.replace("-","")
+#     san_phone=san_phone.replace("+","")
+#     return san_phone 
+# print(sanitize_phone_number("    +38(050)123-32-34"))
+# variant другой с другой формой записи 
+# def sanitize_phone_number(phone):
+#     san_phone=(
+#         phone.replace(")","")
+#         .replace("(","")
+#         .replace(" ","")
+#         .replace("-","")
+#         .replace("+","")
+#     )
+#     return san_phone 
+# print(sanitize_phone_number("    +38(050)123-32-34"))
+
+
+# def is_check_name(fullname, first_name):
+#   pref = fullname.startswith(first_name)
+#   return pref
+# print(is_check_name ("OksanaPavlenko", "Oksana"))
+
+# country_cod = {"JP":"+81", "SG":"+65", "TW":"+886", "UA":"+380"}
+
+# def sanitize_phone_number(phone):
+#     new_phone = (
+#         phone.strip()
+#         .removeprefix("+")
+#         .replace("(", "")
+#         .replace(")", "")
+#         .replace("-", "")
+#         .replace(" ", "")
+#     )
+#     return new_phone
+
+
+# def get_phone_numbers_for_countries(list_phones):
+#    tel_cod ={"UA":[], "JP":[], "TW":[], "SG":[]}
+#    #tel_list = list()
+#    for tel in list_phones:
+#        tel1 = sanitize_phone_number(tel)
+#        #tel_list.append(tel1)
+#        if tel1.startswith("380"):
+#            tel_cod["UA"].append(tel1)
+#        elif tel1.startswith("81"):
+#            tel_cod["JP"].append(tel1)
+#        elif tel1.startswith("886"):
+#            tel_cod["TW"].append(tel1)
+#        elif tel1.startswith("65"):
+#            tel_cod["SG"].append(tel1)
+#        else:
+#            tel_cod["UA"].append(tel1)
+      
+#    return (tel_cod)
+
+# print(get_phone_numbers_for_countries(["    +38(050)123-32-34", "+  88612458 (444)-1", "     0503451234", "    65(111) 23-22-15", "+ 81 121 14444 78885", "(050)8889900", "8102456","38050-111-22-22", "38050 111 22 11   "]))
+
+#ЗАВДАННЯ: ВАЛІДАЦІЯ ПОВІДОМЛЕННЯ НА НАЯВНІСТЬ СПАМ СЛІВ
+# def is_spam_words(text, spam_words, space_around=False):
+#   r = True
+#   if space_around:
+#       for el_spam_words in spam_words:
+#           n = text.lower().find(el_spam_words.lower()) 
+#           if not (text.lower().startswith(el_spam_words.lower())) and text.lower()[n-1]!=" " and text.lower()[n+len(el_spam_words)-1]!=" " and text.lower()[n+len(el_spam_words)-1]!=".":
+#               print("строка НЕ начинается со спама")
+#               r = False
+#           else:
+#               print("строка начинается со спама")
+#               r = True
+#               break
+  
+    
+#   else:
+#       for el_spam_words in spam_words:
+#           if el_spam_words.lower() not in text.lower():
+#               r = False
+#           else:
+#               r = True
+#   return r
+
+# print(is_spam_words("Молох", ["лох"], True))
+
+# str = "Hello, i have wondefull news - Putin is dead"
+# sp = "Putin"
+# res = sp in str
+# print(res)
+
+# CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ"
+# TRANSLATION = ("a", "b", "v", "g", "d", "e", "e", "j", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u",
+#                "f", "h", "ts", "ch", "sh", "sch", "", "y", "", "e", "yu", "ya", "je", "i", "ji", "g")
+
+# TRANS = {}
+
+# def translate(name):
+#     for c, l in zip(CYRILLIC_SYMBOLS, TRANSLATION):
+#         TRANS[ord(c)] = l
+#         TRANS[ord(c.upper())] = l.upper()    
+#     return name.translate(TRANS)
+
+
+# print(translate("Олекса Івасюк"))
+
+   
+# students = {"Nick": "A", "Olga": "B", "Mike": "FX", "Anna": "C"}
+# def formatted_grades(students): 
+#   i = 1
+#   grades = {"A": 5, "B": 5, "C": 4, "D": 3, "E": 3, "FX": 2, "F": 1}
+#   res = list()
+#   for k, val in students.items():
+#     res.append("")
+#     res[i-1]=("{:>4}|{:<10}|{:^5}|{:^5}".format(i, (str(k)), str(students.get(k)), str(grades.get(students.get(k)))))
+#     i = i + 1
+#   return(res)
+
+
+# for el in formatted_grades(students):
+#     print(el)
+
+# def formatted_numbers():
+#     res = list()
+#     res.append("")
+#     res[0]=("|{:^10}|{:^10}|{:^10}|".format("decimal", "hex", "binary"))
+#     for i in range(1, 17):
+#         res.append("")
+#         res[i]=("|{:<10d}|{:^10x}|{:>10b}|".format(i-1, i-1, i-1))
+#     return(res)    
+
+# for el in formatted_numbers():
+#     print(el)
+
+# import re
+
+
+# def find_word(text, word):
+#     dict_s = {
+#         'result': '',
+#         'first_index': '',
+#         'last_index': '',
+#         'search_string': '',
+#         'string': ''
+# }
+#     res = re.search(word, text)
+#     if res:
+#        dict_s['result'] = True
+#        dict_s['first_index'] = res.start()
+#        dict_s['last_index'] = res.end()
+#        dict_s['search_string'] = word
+#        dict_s['string'] = text
+#     else:
+#        dict_s['result'] = False
+#        dict_s['first_index'] = None
+#        dict_s['last_index'] = None
+#        dict_s['search_string'] = word
+#        dict_s['string'] = text
+#     return dict_s
+
+# print(find_word("Guido van Rossum began working on Python in the late 1980s, as a successor to the ABC programming language, and first released it in 1991 as Python 0.9.0.", "Python"))
+
+# import re
+
+# def find_all_words(text, word):
+#   numbers = re.findall(word, text, flags=re.IGNORECASE)
+#   return numbers
+
+# print(find_all_words("Guido van Rossum began working on Python in the late 1980s, as a successor to the ABC programming language, and first released it in 1991 as PYthon 0.9.0.", "Python"))
+
+# import re
+# def replace_spam_words(text, spam_words):
+#   p=text
+#   for sp in spam_words:
+#     n = "*"*len(sp)
+#     p = re.sub(sp, n, p, flags=re.IGNORECASE)
+#   return(p) 
+
+# print(replace_spam_words("Guido yyy van Rossum began cccc working on Python in the late 1980s, ddddd as a successor to the ABC programming language, and first released it in 1991 as PYthon 0.9.0.", ["yyy", "cccc", "DDDDD"]))
+
+# cars =  [
+#   {'car': 'Ford', 'year': 2005},
+#   {'car': 'Mitsubishi', 'year': 2000},
+#   {'car': 'BMW', 'year': 2019},
+#   {'car': 'VW', 'year': 2011}
+# ]      
+
+# def get_key(element):
+#   return element['car']
+
+# print(cars)
+# cars.sort(key = get_key)
+# cars.sort(key = get_key, reverse=True)
+# print (f"sorted: {cars}")
+# ============================
+
+# comp = lambda element:element["car"]
+# is_prime = lambda x: x%2==0
+# is_sguare = lambda x: x**2
+
+# print("lambda >>>>>>>>>", is_prime(3))
+# print("lambda>>>>>>", is_sguare(2))
+
+
+
+# a =[1,2,3,52,1,31,88]
+# a.sort()
+# print (a)
+
+#--------------
+# d={
+#   "a" : 1,
+#   "b" : 2,
+#   "c" : 3,
+#   "d" : 1,
+#   "h" : 2,
+#   "w" : 256
+# }
+# def lookup_key (data, value):
+#   keys=list()
+#   for key, number in data.items():
+#     if number == value:
+#       keys.append(key) 
+#   return(keys)
+
+# print(lookup_key(d, 1))
+
+#------
+
+# numbers = ["123", "456", "1000", "800", "dhdsj"]
+# def sanitize(numbers):
+#   res_numb = list()
+#   for num in numbers:
+#     if isinstance(num, str) and num.isdigit():
+#       res_numb.append(num) 
+#   return res_numb
+
+# def trans_int(numbers):
+#   res_num = list()
+#   for num in numbers:
+#     res_num.append(int(num))
+#   return res_num  
+# def avarage(numbers):
+#   return sum(numbers) / len(numbers)
+
+
+# san = sanitize(numbers)
+# print(san)
+# sani = trans_int(san)
+# print(sani)
+# res = avarage(sani)
+# print(res)
+# print(trans_int(sanitize(numbers)))
+# print(sanitize(numbers))
+
+# words = ["ad", "bd", "aaab", "baa", "badab"]
+# allowed="ab"
+# words = ["a", "b", "c", "ab", "ac", "bc", "abc"]
+# allowed="abc"
+# def countCons(allowed, words):
+#   count = 0
+#   allowed = set(allowed)
+#   res = list()
+#   for el in words:
+#     if set(el).issubset(allowed):
+#       count+=1
+#       res.append(el)
+#   return count, res
+
+# print(countCons(allowed, words))
+
+# def factorial(n):
+#   if n>=2:
+#     return factorial(n-1)*n
+#   else:
+#     return 1
+  
+# print(factorial(3))
+
+#buble sort
+#---------
+# l = [1, 42, 423, 5, 86, -6, 0, -12]
+# def buble_sort(array):
+#   for i in range(0, len(array)-1):
+#      for j in range (0, len(array)-1-i):
+#         if array[j]>array[j+1]:
+#            array[j], array [j+1] = array[j+1], array[j]
+#   return(array)
+
+# print(buble_sort(l))
+
+# =========================
+# import re
+
+# def find_all_emails(text):
+#     result = re.findall(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$'", text, flags=re.IGNORECASE)
+#     return result    
+        
+# print(find_all_emails('Ima.Fool@iana.org Ima.Fool@iana.o 1Fool@iana.org first_last@iana.org first.middle.last@iana.or a@test.com abc111@test.com.net' ))   
+# ============================
+
+# result = re.findall(r'\d{2}-\d{2}-\d{4}', 'Amit 34-3456 12-05-2007, XYZ 56-4532 11-11-2011, ABC 67-8945 12-01-2009')
+# print(result)
+
+# result = re.findall(r'[a-zA-Z]\w{0,}\.{0,}\w{0,}\.{0,}\w+@\w+\.\w{2,}', 'Ima.Fool@iana.org Ima.Fool@iana.o 1Fool@iana.org first_last@iana.org first.middle.last@iana.or a@test.com abc111@test.com.net')
+# print(result)
+
+# import re
+
+
+# def find_all_phones(text):
+#     result = re.findall(r"[+]\d{3}\(\d{2}\)\d{3}\-\d{1}\-\d{3}|[+]\d{3}\(\d{2}\)\d{3}\-\d{2}\-\d{2}", text) 
+#     return result
+
+# import re
+# s = "I bought 77 nuts for 6$ and 110 bolts for 3$."
+# print(re.findall("(\d){3}", s))  # ['0']
+# print(re.findall("[\d]{3}", s))  # ['110']
+# print(re.findall("\d{3}", s))    # ['110']
