@@ -1971,3 +1971,693 @@
 # print(re.findall("(\d){3}", s))  # ['0']
 # print(re.findall("[\d]{3}", s))  # ['110']
 # print(re.findall("\d{3}", s))    # ['110']
+
+# fh = open('test.txt', 'w+')
+# fh.write('hello!')
+# fh.seek(4)
+
+# first_two_symbols = fh.read(2)
+# print(first_two_symbols)  # 'he'
+
+# fh.close()
+
+
+# fh = open('test.txt', 'w')
+# fh.write('hello!')
+# fh.close()
+
+# fh = open('test.txt', 'r')
+# while True:
+#     symbol = fh.read(1)
+#     if len(symbol) == 0:
+#         break
+#     print(symbol)
+
+# fh.close()
+
+# fh = open('test.txt', 'w')
+# fh.write('first line\nsecond line\nthird line')
+# fh.close()
+
+# fh = open('test.txt', 'r')
+# while True:
+#     line = fh.readline()
+#     if not line:
+#         break
+#     print(line)
+# fh.close()
+
+# fh = open('test.txt', 'r')
+# lines = fh.readlines()
+# print(lines)
+
+# fh.close()
+
+# fh.close()
+
+# fh = open('test.txt', 'w+')
+# fh.write('hello!')
+
+# position = fh.tell()
+# print(position) # 6
+
+# fh.seek(1)
+# position = fh.tell()
+# print(position) # 1
+
+# fh.read(2)
+# position = fh.tell()
+# print(position) # 3
+
+# fh.read(102)
+# position = fh.tell()
+# print(position) # 3
+
+# fh.close()
+
+# byte_str = 'some text'.encode()
+# print (byte_str)
+
+# numbers = [127, 255, 156]
+# byte_numbers = bytes(numbers)
+# print (byte_numbers)
+# print(hex(255))
+
+# s = "Привіт!"
+
+# utf8 = s.encode()
+# print(utf8) # b'\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82!'
+
+# utf16 = s.encode('utf-16')
+# print(utf16)  # b'\xff\xfe\x1f\x04@\x048\x042\x045\x04B\x04!\x00'
+
+# s_from_utf16 = utf16.decode('utf-16')
+# print(s_from_utf16 == s)  # True
+
+# byte_array = bytearray(b'Kill Bill')
+# byte_array[0] = ord('B')
+# byte_array[5] = ord('K')
+# print(byte_array) # bytearray(b'Bill Kill')
+
+# import shutil
+# archive_name = shutil.make_archive('backup', 'zip')
+
+# import shutil
+# archive_name = shutil.make_archive('backup', 'zip', 'd:\Projects')
+# shutil.unpack_archive(archive_name, 'new_folder_for_data')
+
+# import shutil
+
+# for shortcut, description in shutil.get_archive_formats():
+#     print('{:<10} | {:<10}'.format(shortcut, description))
+
+# fh = open('test.txt', 'w')
+# fh.write('Alex Korp,3000\nNikita Borisenko,2000\nSitarama Raju,1000')
+# fh.close()
+
+# def total_salary(path):
+#   sal_list = ''
+#   sum = float(0)
+#   fr=open(path, 'r')
+#   while True:
+#     line = fr.readline()
+#     for l in line:
+#        if l.isdigit():
+#           sal_list=sal_list + l
+#     sal = float(sal_list)
+#     print("sal", sal)
+#     sum = sum + sal
+#     print("sum", sum)
+#     sal_list = '0'
+#     if not line:
+#         break
+#   fr.close()  
+#   return sum
+
+# print(total_salary('D:/Projects/test.txt'))
+
+# l='12.3'
+# print(float(l)*2)
+# print(l)
+
+# def write_employees_to_file(employee_list, path):
+#     f = open(path, 'w')
+#     for i in range(len(employee_list)):
+#         for el in employee_list[i]:
+#             f.write(el + "\n")
+#     f.close()
+
+
+# write_employees_to_file([['Robert Stivenson,28', 'Alex Denver,30'], ['Drake Mikelsson,19']], 'D:/Projects/test.txt')
+
+# def read_employees_from_file(path):
+#   list_employees = []
+#   f = open(path, 'r')
+#   while True:
+#     line = f.readline()    
+#     if line!='':
+#            line = line.replace("\n", "")
+#            list_employees.append(line)           
+#     if not line:
+#          break
+#   f.close()
+#   return list_employees
+
+# print(read_employees_from_file('D:/Projects/test.txt'))
+
+# def add_employee_to_file(record, path):
+#   f = open(path, 'a')
+#   f.write(record + "\n")
+
+#   f.close()
+
+# add_employee_to_file('Oksana Pavlenko,43', 'D:/Projects/test.txt')
+
+# def get_cats_info(path):
+#    cats_dict = []
+#    k=0
+#    with open(path, 'r') as f:
+#      while True:
+#        line = f.readline()
+#        line1 = line.replace("\n", "")
+#        if(len(line1) == 0):
+#         break
+#        cats_dict.append ({"id": "", "name": "", "age": ""})
+#        #if len(line1)!=0:
+#        str_res = ''
+#        cats_list = []
+#        for i in range(len(line1)):
+#          if line1[i]!=',':
+#            str_res = str_res + line1[i]
+#          else:
+#            if str_res!='':
+#              cats_list.append(str_res)
+#            str_res=''
+#        if str_res!=0:
+#          cats_list.append(str_res)       
+#        print(cats_list)
+#        cats_dict[k]['id']=cats_list[0]
+#        cats_dict[k]['name']=cats_list[1]
+#        cats_dict[k]['age']=cats_list[2]
+#        k=k+1
+#        if not line:
+#          break   
+           
+#    return cats_dict
+
+# get_cats_info('D:/Projects/test.txt')
+
+
+
+
+# str="abc83 cde7 1 b 24"
+# res=[]
+# str_res=''
+# for i in range(len(str)):
+#   if str[i].isdigit():
+#     str_res = str_res + str[i]
+#   else:
+#     if str_res != "":
+#       res.append(str_res)
+#     str_res = ''
+# if str_res != '':
+#   res.append(str_res)
+#print(res)
+
+# str = 'ae1,Tayson,3'
+# list_res =[]
+# str_res = ''
+# for i in range(len(str)):
+#   if str[i]!=',':
+#     str_res = str_res + str[i]
+#   else:
+#     if str_res!='':
+#       list_res.append(str_res)
+#     str_res=''
+# if str_res!=0:
+#   list_res.append(str_res)
+
+# print(list_res)
+
+# def get_recipe(path, search_id):
+#   is_found = False
+#   res = {
+#     "id": "",
+#     "name": "",
+#     "ingredients": []
+#     }
+#   with open(path, 'r') as f:
+#     while True:      
+#       str_MongoDB=''
+#       str_name=''
+#       line = f.readline()
+#       line1 = line.replace('\n','')
+#       for i in range(len(line1)):
+#         if line1[i] == ',':
+#           break
+#         str_MongoDB=str_MongoDB+line1[i]
+#       if str_MongoDB == search_id:
+#         print ("wir find!!!")
+#         is_found = True        
+#         res["id"]=str_MongoDB
+#         for i in range(25, len(line1)):
+#           if line1[i]!=',':
+#             str_name = str_name + line1[i]
+#           else: 
+#             if str_name!='':
+#               res["name"]=str_name
+#               str_name = ''
+#               k=i
+#               break        
+#         for i in range(k+1, len(line1)):
+#             if line1[i]!=',':
+#               str_name = str_name + line1[i]
+#             else:
+#               if str_name!='':
+#                 res["ingredients"].append(str_name)
+#                 str_name=''   
+#         if str_name!='':
+#           res["ingredients"].append(str_name)
+#       str_MongoDB=''  
+       
+
+#       if not line:
+#         break 
+#     if is_found:
+#       return(res)
+#     else:
+#       return None   
+# print(get_recipe("recept.txt", "60b90c2413067a15887e1"))
+
+# def sanitize_file(source, output):
+#   with open(source, 'r') as s_file:
+#     text=s_file.read()
+#     for int in ["0","1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+#       text=text.replace(int,'')        
+#     print(text)
+#     with open(output,'w') as out_file:
+#       out_file.write(text) 
+# sanitize_file('test.txt', 'sanit_file.txt')
+
+# def save_applicant_data(source, output):
+#   k=0
+#   res = []
+#   res_line=''
+#   with open(source, 'r') as source_file:
+#     l = source_file.readlines()
+#     for line in l:
+#       if "name" in line:
+#         #res_line=res_line + line.strip()
+#         res.append(line.strip())
+#         l.remove(line)
+#         k=k+1
+#     for j in range(k):
+#       for line in l:
+#         if "specialty" in line: 
+#           l.remove(line)
+#           res[j] = res[j] + line.replace(' ','')
+#           break
+#     for j in range(k):
+#       for line in l:
+#         if "math" in line: 
+#           l.remove(line)
+#           res[j] = res[j] + line.replace(' ','')
+#           break
+#     for j in range(k):
+#       for line in l:
+#         if "lang" in line: 
+#           l.remove(line)
+#           res[j] = res[j] + line.replace(' ','')
+#           break  
+#     for j in range(k):
+#       for line in l:
+#         if "eng" in line: 
+#           l.remove(line)
+#           res[j] = res[j] + line.replace(',','').replace(' ','')
+#           break  
+#   with open(output,'w') as output_file:
+#     for el in res:
+#       el=el.replace("name",'')
+#       el=el.replace("specialty",'') 
+#       el=el.replace("math",'')
+#       el=el.replace("lang",'') 
+#       el=el.replace("eng",'')    
+#       el=el.replace('"','')
+#       el=el.replace(':','')
+#       el=el.replace('\n','')
+           
+#       output_file.writelines(el+'\n')
+    
+# save_applicant_data('test.txt', 'sanit_file.txt')
+
+
+# li = ['hfjkskj,','jflkdjsakl,','jfkjsdlksd,']
+# res=''
+# for el in li:
+#   for i in range(len(el)-1):
+#     res = res + el[i]
+#   el = res 
+# print(li)
+      
+# a = ' One     two      three'
+# arr=a.split()  # удаляет лишние пробелы
+# print(arr)
+
+# def camel_to_snake(s):
+#   res = ''
+#   for char in s:
+#     if char.isupper():
+#       res=res+'_'+char.lower()
+#     else:
+#       res+=char
+#   return res  #для вывода всего кроме первого символа res[1:]
+
+# print(camel_to_snake("getNumbersFromString"))  
+
+# def decompose(dna_string):
+#   frame =""
+#   res = []
+#   res.append(dna_string[0:2])
+#   for i in range(2, len(dna_string), 3):
+#     res.append(dna_string[i:i+3])
+#   frame = " ".join(res)
+#   return(frame)
+
+# print(decompose("AGGTGACACCGCAAGCCTTATATTAGC"))
+
+# def poker(catds):
+#   res = set()
+#   for card in catds:
+#     last = card[-1]
+#     res.add(last)
+#   return len(res)==1
+
+# print(poker(["AS", "3S", "10S", "KS", "4S"]))
+
+# def len_vowels_1(text):
+#   vowels ="aeiou"
+#   for char in text:
+#     if char not in vowels:
+#       text = text.replace(char, ".")
+#   l=text.split(".")
+#   lenghts = list()
+#   for elem in l:
+#     lenghts.append(len(elem))
+#   print(lenghts)
+#   return max(lenghts)
+
+# print(len_vowels_1("asfdaaeioafafdaeea"))
+# import re
+
+# def len_vowels_2(text):
+#   res=re.findall(r'[aeiou]+', text)
+#   max_el=max(res, key=len)
+#   return len(max_el)
+
+# print(len_vowels_2("asfdaaeioafafdaeea"))
+# morze_dict={
+  
+# }
+# def morze(text):
+
+
+
+# print(morze("Hello, how are you"))
+# import re
+
+# def dadFilter(text):
+#   return re.sub(r',+', ',',text).rstrip(',')
+# print(dadFilter("Hello,,,,,,, it is me,,,"))
+
+
+
+# def save_applicant_data(source, output):
+#   data=""
+#   with open(source) as source:
+#     for person in source:
+#       data=data+",".join(str(val) for val in person.value())
+# ===========================
+
+# def is_equal_string(utf8_string, utf16_string):
+#   return utf8_string.decode('utf-8')==utf16_string.decode('utf-16')
+
+# print(is_equal_string(b'\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82!', b'\xff\xfe\x1f\x04@\x048\x042\x045\x04B\x04!\x00')) 
+# print(is_equal_string(b'Hello, how are you', b'\xff\xfeH\x00e\x00l\x00l\x00o\x00,\x00 \x00h\x00o\x00w\x00 \x00a\x00r\x00e\x00 \x00y\x00o\x00u\x01'))
+
+# s = "Привет"
+
+# utf8 = s.encode()
+# print("utf8",utf8)  # b'\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82!'
+
+# utf16 = s.encode('utf-16')
+# print("utf16",utf16)  # b'\xff\xfe\x1f\x04@\x048\x042\x045\x04B\x04!\x00'
+
+# s_from_utf16 = utf16.decode('utf-16')
+# print(s_from_utf16 == s)  # True
+
+# str = "Привет"
+
+# print('==========================')
+# print("utf8", str.encode('utf-8').decode('utf-8'))
+# print("utf16", str.encode('utf-16').decode('utf-16'))
+# print("utf32", str.encode('utf-32').decode('utf-32'))
+
+# h = 'utf8 b'Hello, how are you'
+# utf16 b'\xff\xfeH\x00e\x00l\x00l\x00o\x00,\x00 \x00h\x00o\x00w\x00 \x00a\x00r\x00e\x00 \x00y\x00o\x00u\x00'
+# utf32 b'\xff\xfe\x00\x00H\x00\x00\x00e\x00\x00\x00l\x00\x00\x00l\x00\x00\x00o\x00\x00\x00,\x00\x00\x00 \x00\x00\x00h\x00\x00\x00o\x00\x00\x00w\x00\x00\x00 \x00\x00\x00a\x00\x00\x00r\x00\x00\x00e\x00\x00\x00 \x00\x00\x00y\x00\x00\x00o\x00\x00\x00u\x00\x00\x00''
+
+# def save_credentials_users(path, users_info):
+#   str_user=''
+#   with open(path, 'wb') as file:
+#     for key, value in users_info.items():
+#       file.write((key +":" + value +'\n').encode())
+
+# save_credentials_users('byte-test.txt',{'andry':'uyro18890D', 'steve':'oppjM13LL9e'})
+
+# def get_credentials_users(path):
+#   res=[]
+#   with open(path, 'rb') as file:
+#     while True:
+#       line = file.readline()
+#       line = line.decode()
+#       line = line.replace('\n','')
+#       res.append(line)
+#       if not line:
+#         break
+#   res.pop(-1)
+#   return res
+# print(get_credentials_users('byte-test.txt'))
+
+# import base64
+
+# message = 'aladdin:opensesame'
+# message_bytes = message.encode("utf-8")
+# print(message_bytes)
+# base64_bytes = base64.b64encode(message_bytes)
+# print(base64_bytes)
+# base64_message = base64_bytes.decode("utf-8")
+# print(base64_message)
+
+
+# import base64
+# def encode_data_to_base64(data):
+#   res=[]
+#   for el in data:
+#     el_bytes=el.encode('utf-8')
+#     base64_el=base64.b64encode(el_bytes)
+#     res.append(base64_el.decode('utf-8'))
+#   return res  
+
+# print(encode_data_to_base64(['andry:uyro18890D', 'steve:oppjM13LL9e']))
+
+# import shutil
+
+# archive_name = shutil.make_archive('backup', 'zip')
+# shutil.unpack_archive(archive_name, 'new_folder_for_data')
+# import shutil
+
+# for shortcut, description in shutil.get_archive_formats():
+#     print('{:<10} | {:<10}'.format(shortcut, description))
+
+
+
+# def save_applicant_data(source, output):
+#     data = ""
+#     for person in source:
+#         data += ','.join([str(v) for v in person.values()])
+#         data += '\n'
+#     with open(output, 'w') as output_file:
+#         output_file.write(data)
+
+# save_applicant_data('test.txt', 'sanit_file.txt')
+
+
+# import shutil
+
+# def create_backup(path, file_name, employee_residence):
+#   with open (path + '/' + file_name, 'wb') as ff:
+#              for key, value in employee_residence.items():
+#                   str = (key + " " + value + "\n").encode()
+#                   ff.write(str) 
+        
+#   archive_name = shutil.make_archive('backup_folder', 'zip', path) 
+#   return archive_name
+
+# print(create_backup('d:\Projects','create_backup.txt',{'Michael': 'Canada', 'John':'USA', 'Liza': 'Australia'}))
+
+# import shutil
+
+# def unpack(archive_path, path_to_unpack):
+#   shutil.unpack_archive(archive_path, path_to_unpack)    
+# unpack('111.zip', '111-unpack')
+
+# def is_integer(s):
+#     res = True
+#     if len(s) == 0:
+#         res = False
+#         return res
+#     else:
+#         s=s.strip()
+#         if len(s)>=1:
+#             if s[0]=='+' or s[0]=='-'or s[0].isdigit():
+#                 # print(s)
+#                 # print(s[0]=='+' or s[0]=='-'or s[0].isdigit())               
+#                 for i in range(1, len(s)):
+#                     if not s[i].isdigit():
+#                         res = False
+#             else:
+#                 res=False
+              
+#         else:
+#             res=False   
+#     return res 
+# print(is_integer("    +12511177   ")) 
+
+# def capital_text(s):
+#   punctuation_mark='!?.' 
+#   i=1
+#   index_first_symb=0
+#   wait = False
+#   if s[0] != " ":
+#     s=s.replace(s[0], s[0].upper())
+#   else:
+#     while i <= len (s)-1:
+#       if s[i-1]==" " and s[i].isalpha():
+#         s=s.replace(s[i], s[i].upper())
+#         index_first_symb=i
+#         print("index_first_symb",i)
+#         break
+#       i+=1
+# #============================================
+#   for i in range(index_first_symb+1, len(s)):
+#     if s[i] in punctuation_mark:
+#       wait = True
+#       for j in range (i+1, len(s)):
+#         if s[j].isalpha() and wait == True:
+#           print (f"s[j].isalpha() and wait == True, i= {i}, j = {j}, wait = {wait}")
+#           s=s[:j] + s[j].upper() + s[j+1:]
+#           wait = False
+#           break
+#   return s
+# print(capital_text("      i go to! no? yes. of course  "))
+
+
+
+
+# def capital_text(s):
+#   punctuation_mark='!?.' 
+#   wait = True
+#   for i in range(len(s)):
+#     if wait == True and s[i].isalpha():
+#       s = s[:i] + s[i].upper() + s[i+1:]
+#       wait = False
+#     elif s[i] in punctuation_mark:
+#       wait = True
+#   return s
+# print(capital_text("      i go to! no? yes. of course  "))
+
+# s = "22 hhfhdj534 dd1jfdk 5 jldk78"
+# res = []
+#i=0
+
+# while i<len(s):
+#   str_res=''
+#   while i<len(s) and s[i] in "0123456789":
+#     str_res = str_res + s[i]
+#     i+=1
+#   i+=1
+#   if str_res!="":
+#     res.append(str_res)  
+# print(res)  
+
+# def solve_riddle(riddle, word_length, start_letter, reverse=False):
+#     word=''
+#     if not reverse:
+#         for i in range(len(riddle)):
+#             if riddle[i]==start_letter:
+#                 word=riddle[i:i+word_length]
+#                 break
+#     else:
+#         riddle = riddle[::-1]
+#         for i in range(len(riddle)):
+#             if riddle[i]==start_letter:
+#                 word=riddle[i:i+word_length]
+      
+#     return word
+
+# print(solve_riddle('mi1powerpret', 5, 'p'))
+# print(solve_riddle('mi1rewopret',5,'p',reverse=True))
+# print(solve_riddle('mi1powerret',5,'p'))
+
+# def data_preparation(list_data):
+#   res=[]
+#   min_el=None
+#   max_el=None
+#   for list in list_data:
+#     if len(list)>2:
+#       min_el=list[0]
+#       max_el=list[0]
+#       for el in list:
+#         if el>max_el:
+#           max_el=el
+#         if el<min_el:
+#           min_el=el
+#       list.remove(min_el)
+#       list.remove(max_el)
+#       for el in list:
+#           res.append(el)
+#     else:  
+#       for el in list:
+#         res.append(el)  
+#   res.sort(reverse=True)
+#   return res    
+# print(data_preparation([[1,2,3],[3,4],[5,6]]))  
+
+# def token_parser(s):
+#   operator = "+-/*)()"
+#   res = []
+#   number_str=''
+#   i=0
+#   while i< len(s):
+#     if s[i]!=" " and s[i] not in operator:
+#           number_str = ""
+#           while i<len(s) and s[i] in "0123456789":
+#             number_str = number_str + s[i]
+#             i+=1
+#           i-=1
+#           if number_str !="":
+#               res.append(number_str)
+#     elif s[i] in operator:
+#       res.append(s[i])
+#     i+=1  
+#   return res
+# print("result>>>> ",token_parser("2+ 347 + 11111 -5 * 3"))
+
+# def all_sub_lists(data):
+#   out = [[]]
+#   for i in range(len(data)):
+#     for j in range(len(data)-i):
+#       out.append(data[j:j+i+1])
+#   return out 
+# print(all_sub_lists([1, 2, 3, 4]))
+    
