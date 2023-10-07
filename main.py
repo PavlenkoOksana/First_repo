@@ -3006,3 +3006,252 @@
 #   return difference.days  
 # get_days_from_today('2020-10-09')
 
+# визначення кількості днів у конкретному місяці
+# from datetime import datetime
+
+# def get_days_in_month(month, year):
+#   input_datetime = datetime(year=year, month=month, day=1)
+#   next_month = datetime(year=year+month//12, month=month%12+1, day=1)
+#   difference=next_month-input_datetime
+#   return difference.days                             
+
+# print(get_days_in_month(2,2024))
+    
+# from datetime import datetime
+
+# def get_str_date(date):
+#   input_datetime = datetime(year=int(date[0:4]), month=int(date[5:7]), day=int(date[8:10]), hour=14)
+#   input_datetime=input_datetime.strftime('%A %d %B %Y')
+#   return input_datetime
+
+# print(get_str_date('2021-05-27 17:08:34.149Z')) #Thursday 27 May 2021
+
+# from random import randrange
+
+# def get_numbers_ticket(min, max, quantity):
+#   list_ticket = []
+#   if min < quantity < max and min>0 and max<1000:
+#     for i in range(quantity):
+#       num = randrange(min, max+1)
+#       if num not in list_ticket:
+#         list_ticket.append(num)
+#       else:
+#           num = randrange(min, max+1)
+#           list_ticket.append(num)
+#   else:
+#     return [] 
+#   list_ticket.sort()
+#   return list_ticket
+# print(get_numbers_ticket(1,100, 5))    
+    
+        
+# list = [1,2,3,4,5]
+# if len(list)!=len(set(list)):
+#   print("no")    
+# else:
+#   print("yes")        
+
+# from random import randrange           
+# def get_numbers_ticket(min, max, quantity):
+#   list_ticket = []
+#   if min < quantity < max:
+#     while len(list_ticket)<=quantity or len(list_ticket)!=len(set(list_ticket)):
+#       list_ticket.append(randrange(min, max+1))
+#   else:
+#     return [] 
+#   list_ticket.sort()
+#   return list_ticket
+# print(get_numbers_ticket(1,100, 5))                  
+            
+#повертатиме список унікальних ідентифікаторів бази даних зі словника participants в кількості quantity. Це буде список переможців
+# import random
+# def get_random_winners(quantity, participants):
+#   winners_list = []
+#   key_list = [key for key in participants]
+#   random.shuffle(key_list)
+#   if quantity > len(participants):
+#     return []
+#   else:
+#     return random.sample(key_list, k=quantity)   
+# print (get_random_winners(2, {
+#     "603d2cec9993c627f0982404": "test@test.com",
+#     "603f79022922882d30dd7bb6": "test11@test.com",
+#     "60577ce4b536f8259cc225d2": "test2@test.com",
+#     "605884760742316c07eae603": "vitanlhouse@gmail.com",
+#     "605b89080c318d66862db390": "elhe2013@gmail.com",
+# }))
+
+# participants = {
+#     "603d2cec9993c627f0982404": "test@test.com",
+#     "603f79022922882d30dd7bb6": "test11@test.com",
+#     "60577ce4b536f8259cc225d2": "test2@test.com",
+#     "605884760742316c07eae603": "vitanlhouse@gmail.com",
+#     "605b89080c318d66862db390": "elhe2013@gmail.com",
+# }
+
+# key = [key for key in participants.keys()]
+# print(key)
+# value = [value for value in participants.values()]
+# print(value)
+
+# from decimal import Decimal, getcontext
+
+# def decimal_average(number_list, signs_count):
+#   average_sum=0
+#   getcontext().prec = signs_count
+#   for num in number_list:
+#     average_sum = average_sum + Decimal(num)
+#   average_sum = Decimal(average_sum)/Decimal(len(number_list))
+#   return average_sum  
+    
+# print(decimal_average([31, 55, 177, 2300, 1.57], 9))    
+
+# import collections
+
+# Cat = collections.namedtuple("Cat", ["nickname", "age", "owner"])
+# def convert_list(cats):
+#   tuple_cats = []
+#   dict_cats = []
+#   if isinstance(cats[0], dict):
+#     for i in range(len(cats)):
+#       tuple_cats.append(Cat(cats[i]["nickname"],cats[i]["age"],cats[i]["owner"]))
+#     return tuple_cats
+#   elif isinstance(cats[0], tuple):
+#     for i in range(len(cats)):
+#       dict_cats.append(dict(nickname = cats[i][0],age = cats[i][1], owner = cats[i][2]))
+#     return dict_cats
+
+# #print(convert_list([Cat("Mick", 5, "Sara"), Cat("Barsik", 7, "Olga"), Cat("Simon", 3, "Yura")])) 
+# print(convert_list([
+#     {"nickname": "Mick", "age": 5, "owner": "Sara"},
+#     {"nickname": "Barsik", "age": 7, "owner": "Olga"},
+#     {"nickname": "Simon", "age": 3, "owner": "Yura"},
+# ]))         
+    
+
+# import collections
+
+# Person = collections.namedtuple('Person', ['name', 'last_name', 'age', 'birth_place', 'post_index'])
+# person = Person('Mick', 'Nitch', 35, 'Boston', '01146')
+# person.name  # 'Mick'
+# person.post_index  # '01146'
+# person.age  # 35
+# person[3]  # 'Boston'
+# print(person)
+# print(type(person))
+
+# from collections import Counter
+
+# def get_count_visits_from_ip(ips):
+#   return Counter(ips)
+# print(get_count_visits_from_ip(["74.72.104.169","38.84.174.205","74.72.104.169","20.56.143.247","38.84.174.205","122.36.237.169","17.100.30.192"]))
+
+# def get_frequent_visit_from_ip(ips):
+#   counts = Counter(ips)
+#   return counts.most_common(1)[0]
+
+# print(get_frequent_visit_from_ip(["74.72.104.169","38.84.174.205","74.72.104.169","20.56.143.247","38.84.174.205","122.36.237.169","74.72.104.169","17.100.30.192"]))
+    
+# from collections import deque
+
+# #MAX_LEN = 10
+
+# lifo = deque(maxlen=5)
+
+
+# def push(element):
+#     lifo.appendleft(element)
+#     print(lifo)
+#     #return lifo
+# push(5)
+# push(7)
+# push(8)
+# push(9)
+# push(10)
+# push(11)
+
+# def pop():
+#     return lifo.popleft()
+# print(pop())
+# print(">>>>",lifo)
+
+# from collections import deque
+
+# #MAX_LEN = 10
+
+# fifo = deque(maxlen=10)
+# def push(element):    
+#   fifo.append(element)
+# def pop():    
+#   return fifo.popleft()
+
+# from datetime import datetime
+
+# def get_birthdays_per_week(users):
+#     birthdays_per_week = {}
+#     today = datetime.today().date()
+#     str_names=''
+#     #print(today)
+#     for user in users:
+#         #print(user["birthday"].date())
+#         name = user["name"]
+#         birthday = user["birthday"].date()
+#         birthday_this_year = birthday.replace(year=today.year)
+#         #print(name,birthday_this_year)
+#         if birthday_this_year < today:
+#              birthday_this_year=birthday.replace(year=today.year+1)  
+#         #print(">>>",name,birthday_this_year)  
+#         delta_days = (birthday_this_year - today).days
+#         if delta_days < 7:
+#             if birthday_this_year.weekday() == 0 or birthday_this_year.weekday()==5 or birthday_this_year.weekday()== 6:
+#                 #print(birthday_this_year.weekday())
+#                 if "Monday" not in birthdays_per_week:
+#                     birthdays_per_week["Monday"] = [name]
+#                 else:
+#                     birthdays_per_week["Monday"].append(name)
+#             elif birthday_this_year.weekday() == 1:
+#                 #print(birthday_this_year.weekday())
+#                 if "Tuesday" not in birthdays_per_week:
+#                     birthdays_per_week["Tuesday"] = [name]
+#                 else:
+#                     birthdays_per_week["Tuesday"].append(name)
+#             elif birthday_this_year.weekday() == 2:
+#                 #print(birthday_this_year.weekday())
+#                 if "Wednesday" not in birthdays_per_week:
+#                     birthdays_per_week["Wednesday"] = [name]
+#                 else:
+#                     birthdays_per_week["Wednesday"].append(name)
+#             elif birthday_this_year.weekday() == 3:
+#                 #print(birthday_this_year.weekday())
+#                 if "Thursday" not in birthdays_per_week:
+#                     birthdays_per_week["Thursday"] = [name]
+#                 else:
+#                     birthdays_per_week["Thursday"].append(name)          
+#             elif birthday_this_year.weekday() == 4:
+#                 #print(birthday_this_year.weekday())
+#                 if "Friday" not in birthdays_per_week:
+#                     birthdays_per_week["Friday"] = [name]
+#                 else:
+#                     birthdays_per_week["Friday"].append(name)   
+#     for key in birthdays_per_week.keys():
+#         for i in range(len(birthdays_per_week[key])):
+#             str_names=str_names+birthdays_per_week[key][i]+', '
+#         #print(key+": "+str_names[:-2])
+#         print("\033[36m{}".format(key)+"\033[30m{}".format(": "+str_names[:-2]))
+#         str_names=''       
+            
+
+# get_birthdays_per_week([{"name": "Bill Gates", "birthday": datetime(1955, 10, 28)},
+#     {"name": "Taras Svhevchenko", "birthday": datetime(1970, 10, 9)},
+#     {"name": "Lesja Ukrainka", "birthday": datetime(1971, 10, 10)},
+#     {"name": "Ivan Gates", "birthday": datetime(1955, 10, 10)},
+#     {"name": "Star Pol", "birthday": datetime(1900, 10, 11)},
+#     {"name": "Elvis Presly", "birthday": datetime(1912, 10, 12)},
+#     {"name": "Ben Cambr", "birthday": datetime(1913, 10, 13)},
+#     {"name": "Bill Gates1", "birthday": datetime(1955, 12, 11)},
+#     {"name": "Bill Gates2", "birthday": datetime(1955, 3, 3)},
+#     {"name": "Bill Gates3", "birthday": datetime(1944, 5, 20)},
+#     {"name": "Volodimir Zelensky", "birthday": datetime(1979, 10, 7)},
+#     {"name": "Alla Mazur", "birthday": datetime(1999, 10, 8)},
+#     {"name": "Arni Schwarzneger", "birthday": datetime(1955, 10, 13)}
+# ])
