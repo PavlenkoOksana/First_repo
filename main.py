@@ -3185,73 +3185,385 @@
 # def pop():    
 #   return fifo.popleft()
 
-# from datetime import datetime
+#Каррування 
+# def sum_func(x, y):
+#     return x + y
 
-# def get_birthdays_per_week(users):
-#     birthdays_per_week = {}
-#     today = datetime.today().date()
-#     str_names=''
-#     #print(today)
-#     for user in users:
-#         #print(user["birthday"].date())
-#         name = user["name"]
-#         birthday = user["birthday"].date()
-#         birthday_this_year = birthday.replace(year=today.year)
-#         #print(name,birthday_this_year)
-#         if birthday_this_year < today:
-#              birthday_this_year=birthday.replace(year=today.year+1)  
-#         #print(">>>",name,birthday_this_year)  
-#         delta_days = (birthday_this_year - today).days
-#         if delta_days < 7:
-#             if birthday_this_year.weekday() == 0 or birthday_this_year.weekday()==5 or birthday_this_year.weekday()== 6:
-#                 #print(birthday_this_year.weekday())
-#                 if "Monday" not in birthdays_per_week:
-#                     birthdays_per_week["Monday"] = [name]
-#                 else:
-#                     birthdays_per_week["Monday"].append(name)
-#             elif birthday_this_year.weekday() == 1:
-#                 #print(birthday_this_year.weekday())
-#                 if "Tuesday" not in birthdays_per_week:
-#                     birthdays_per_week["Tuesday"] = [name]
-#                 else:
-#                     birthdays_per_week["Tuesday"].append(name)
-#             elif birthday_this_year.weekday() == 2:
-#                 #print(birthday_this_year.weekday())
-#                 if "Wednesday" not in birthdays_per_week:
-#                     birthdays_per_week["Wednesday"] = [name]
-#                 else:
-#                     birthdays_per_week["Wednesday"].append(name)
-#             elif birthday_this_year.weekday() == 3:
-#                 #print(birthday_this_year.weekday())
-#                 if "Thursday" not in birthdays_per_week:
-#                     birthdays_per_week["Thursday"] = [name]
-#                 else:
-#                     birthdays_per_week["Thursday"].append(name)          
-#             elif birthday_this_year.weekday() == 4:
-#                 #print(birthday_this_year.weekday())
-#                 if "Friday" not in birthdays_per_week:
-#                     birthdays_per_week["Friday"] = [name]
-#                 else:
-#                     birthdays_per_week["Friday"].append(name)   
-#     for key in birthdays_per_week.keys():
-#         for i in range(len(birthdays_per_week[key])):
-#             str_names=str_names+birthdays_per_week[key][i]+', '
-#         #print(key+": "+str_names[:-2])
-#         print("\033[36m{}".format(key)+"\033[30m{}".format(": "+str_names[:-2]))
-#         str_names=''       
-            
+# def sub_func(x, y):
+#     return x - y
 
-# get_birthdays_per_week([{"name": "Bill Gates", "birthday": datetime(1955, 10, 28)},
-#     {"name": "Taras Svhevchenko", "birthday": datetime(1970, 10, 9)},
-#     {"name": "Lesja Ukrainka", "birthday": datetime(1971, 10, 10)},
-#     {"name": "Ivan Gates", "birthday": datetime(1955, 10, 10)},
-#     {"name": "Star Pol", "birthday": datetime(1900, 10, 11)},
-#     {"name": "Elvis Presly", "birthday": datetime(1912, 10, 12)},
-#     {"name": "Ben Cambr", "birthday": datetime(1913, 10, 13)},
-#     {"name": "Bill Gates1", "birthday": datetime(1955, 12, 11)},
-#     {"name": "Bill Gates2", "birthday": datetime(1955, 3, 3)},
-#     {"name": "Bill Gates3", "birthday": datetime(1944, 5, 20)},
-#     {"name": "Volodimir Zelensky", "birthday": datetime(1979, 10, 7)},
-#     {"name": "Alla Mazur", "birthday": datetime(1999, 10, 8)},
-#     {"name": "Arni Schwarzneger", "birthday": datetime(1955, 10, 13)}
-# ])
+# OPERATIONS = {
+#     '-': sub_func,
+#     '+': sum_func
+# }
+
+# def get_handler(operator):
+#     return OPERATIONS[operator]
+
+# handler = get_handler('-')
+# handler(2, 3)           # -1
+
+# get_handler('+')(2, 3)  # 5
+
+#Декоратори 1
+
+# def complicated(x, y):
+#     return x / y
+
+
+# def logged_func(func):
+#     def inner(x, y):
+#         print(f'called with {x}, {y}')
+#         result = func(x, y)
+#         print(f'result: {result}')
+#         return result
+#     return inner
+
+
+# complicated = logged_func(complicated)
+# print(complicated)
+# print(type(complicated))
+# print(complicated(4,2))
+
+# Декоратори 1
+# def logged_func(func):
+#     def inner(x, y):
+#         print(f'called with {x}, {y}')
+#         result = func(x, y)
+#         print(f'result: {result}')
+#         return result
+#     return inner
+
+# @logged_func
+# def complicated(x, y):
+#     return x / y
+
+# complicated(9,3)
+
+# yield
+
+# def interval_generator(x, y):
+#     while x <= y:
+#         yield x
+#         x += 1
+
+# five_to_ten_generator = interval_generator(5, 10)
+# print(five_to_ten_generator) # <generator object interval_generator at 0x00000207E09E0860>
+
+# print(next(five_to_ten_generator)) # 5
+# print(next(five_to_ten_generator)) # 6
+# print(next(five_to_ten_generator)) # 7
+# print(next(five_to_ten_generator)) # 8
+# print(next(five_to_ten_generator)) # 9
+# print(next(five_to_ten_generator)) # 10
+
+# five_to_ten_generator = interval_generator(5, 10)
+# for i in five_to_ten_generator:
+#     print(i)
+
+# map
+# numbers = [1, 2, 3, 4, 5]
+
+# for i in map(lambda x: x ** 2, numbers):
+#     print(i)
+
+# filter
+# for i in filter(lambda x: x % 2, range(1, 10+1)):
+#     print(i)
+
+# some_str = 'aaAbbB C F DDd EEe'
+# for i in filter(lambda x: x.islower(), some_str):
+#     print(i)
+# ----------------------------
+
+# def get_grade(key):
+#     grade = {"A": 5, "B": 5, "C": 4, "D": 3, "E": 3, "FX": 2, "F": 1}
+#     return grade.get(key, None)
+
+# def get_description(key):
+#     description = {
+#         "A": "Perfectly",
+#         "B": "Very good",
+#         "C": "Good",
+#         "D": "Satisfactorily",
+#         "E": "Enough",
+#         "FX": "Unsatisfactorily",
+#         "F": "Unsatisfactorily",
+#     }
+#     return description.get(key, None)
+
+# def unknown_options(key):
+#     return ">>>>>> unknown_options!!!"
+
+# def get_student_grade(option):
+#     if option == "grade":
+#         return get_grade
+#     elif option == "description":
+#         return get_description
+#     else:
+#         return unknown_options
+    
+# # func = get_student_grade("description")
+# # print(func("A"))    
+
+# # func = get_student_grade("grade")
+# # print(func("F"))    
+
+# # #print(grade_action_function = get_student_grade("hghdj"))
+# # print(get_student_grade("hjhdjhf"))
+
+# # func = get_student_grade("description")
+# # if func:
+# #     print(func("A"))
+
+# func = get_student_grade("description")
+# #print(func)
+# print(func("A"))
+    
+# DEFAULT_DISCOUNT = 0.05
+
+# def get_discount_price_customer(price, customer):
+#     if "discount" in customer:
+#         return price-price*customer.get("discount")
+#     else:
+#         return price-price*DEFAULT_DISCOUNT
+        
+# print(get_discount_price_customer(100, {"name": "Dima"}))
+# print(get_discount_price_customer(100, {"name": "Boris", "discount": 0.15}))
+
+# def caching_fibonacci():
+#     cash = {
+#             0 : 0,
+#             1 : 1,
+#             2 : 1 
+#         }
+#     #print (cash)
+#     def fibonacci(n):      
+#       if n in cash:
+#             return cash.get(n)
+#       else: 
+#             cash[n] = fibonacci(n-1)+fibonacci(n-2) 
+#             print(cash)
+#             return cash.get(n)
+#     return fibonacci
+
+# fun = caching_fibonacci()
+# print(fun(8)) 
+
+# def discount_price(discount):
+#   def real_price(price):
+#     return price-price*discount    
+#   return real_price  
+
+# cost_15 = discount_price(0.15)
+# cost_10 = discount_price(0.10)
+# cost_05 = discount_price(0.05)
+
+# price = 100
+# print(cost_15(price))
+# print(cost_10(price))
+# print(cost_05(price))
+
+# def complicated(x, y):
+#     return x / y
+
+
+# def logged_func(func):
+#     def inner(x, y):
+#         print(f'called with {x}, {y}')
+#         result = func(x, y)
+#         print(f'result: {result}')
+#         return result
+#     return inner
+
+
+# complicated = logged_func(complicated)
+# print(complicated(9,3))
+  
+# def logged_func(func):
+#     def inner(x, y):
+#         print(f'called with {x}, {y}')
+#         result = func(x, y)
+#         print(f'result: {result}')
+#         return result
+#     return inner
+
+
+# @logged_func
+# def complicated(x, y):
+#     return x / y
+
+# print(complicated(9,3))
+
+# def format_phone_number(func):
+#     def inner(tel_num):
+#         new_tel_num=func(tel_num)
+#         if len(new_tel_num) == 12:
+#             new_tel_num = "+" + new_tel_num
+#         elif len(new_tel_num) == 10:
+#             new_tel_num = "+38" + new_tel_num 
+#         return new_tel_num
+#     return inner
+
+# @format_phone_number
+# def sanitize_phone_number(phone):
+#     new_phone = (
+#         phone.strip()
+#             .removeprefix("+")
+#             .replace("(", "")
+#             .replace(")", "")
+#             .replace("-", "")
+#             .replace(" ", "")
+#     )
+#     return new_phone
+# print(sanitize_phone_number("    +38(050)123-32-34"))
+
+# парсер чисел из строки РАБОТАЮЩИЙ
+# def generator_numbers(string):
+#     res = []   
+#     i = 0 
+#     while i < len(string):
+#         number = ""
+#         while i < len(string) and string[i] in "0123456789":
+#             number = number + string[i]
+#             i+=1
+#         i+=1
+#         if number != "":
+#             res.append(number)
+#     return res
+# print(generator_numbers("The resulting profit was: from the southern possessions $ 100, from the northern colonies $500, and the king gave $1000."))
+
+# Функція generator_numbers(string="") безпосередньо розпарсює рядок і за допомогою yield повертає поточне число Функція sum_profit(string) підсумовує числа, отримані від generator_numbers, та повертає загальну суму прибутку з рядка.
+
+# def generator_numbers(string=""):
+#     i = 0 
+#     while i < len(string):
+#         number = ""
+#         while i < len(string) and string[i] in "0123456789":
+#             number = number + string[i]
+#             i+=1
+#         i+=1
+#         if number != "":
+#             yield number
+    
+# def sum_profit(string):
+#     sum = 0
+#     num = generator_numbers(string)
+#     for i in num:
+#         sum = sum + float(i)
+#     return sum
+
+# print(sum_profit("The resulting profit was: from the southern possessions $ 100, from the northern colonies $500, and the king gave $1000."))
+    
+# Розробіть функцію normal_name, яка приймає список імен та повертає теж список імен, але вже з правильними іменами з великої літери.
+# def normal_name(list_name):
+#     normal_list = []
+#     for i in map(lambda x: x.capitalize(), list_name):
+#        normal_list.append(i)
+#     return normal_list
+
+# print(normal_name(["dan", "jane", "steve", "mike"]))
+
+# def get_emails(list_contacts):
+#     list_email = []
+#     for i in map(lambda x: x.get("email"),list_contacts):
+#         list_email.append(i)
+#     return list_email 
+
+
+# print(get_emails([{
+#     "name": "Allen Raymond",
+#     "email": "nulla.ante@vestibul.co.uk",
+#     "phone": "(992) 914-3792",
+#     "favorite": False,
+# },
+# {
+#     "name": "Lesja Ukrainka",
+#     "email": "lesja.ukr@gmail.com",
+#     "phone": "(992) 914-3792",
+#     "favorite": False,
+# },
+# {
+#     "name": "Oksana Pavl",
+#     "email": "ok.pav@ukr.co.uk",
+#     "phone": "(992) 914-3792",
+#     "favorite": False,
+# }
+# ]))
+
+# def positive_values(list_payment):
+#     positive_values = []
+#     for i in filter(lambda x: x > 0,list_payment):
+#         positive_values.append(i)
+#     return positive_values
+
+# print(positive_values([100, -3, 400, 35, -100]))
+
+# def get_favorites(contacts):
+#     favorites_contacts = []
+#     for i in filter(lambda x: x.get("favorite"), contacts):
+#         favorites_contacts.append(i)
+#     return favorites_contacts
+
+# print(get_favorites([{
+#     "name": "Allen Raymond",
+#     "email": "nulla.ante@vestibul.co.uk",
+#     "phone": "(992) 914-3792",
+#     "favorite": False,
+# },
+# {
+#     "name": "Lesja Ukrainka",
+#     "email": "lesja.ukr@gmail.com",
+#     "phone": "(992) 914-3792",
+#     "favorite": False,
+# },
+# {
+#     "name": "Oksana Pavl",
+#     "email": "ok.pav@ukr.co.uk",
+#     "phone": "(992) 914-3792",
+#     "favorite": True,
+# },
+# {
+#     "name": "Vlad Pavl",
+#     "email": "vlad.pav@ukr.co.uk",
+#     "phone": "(992) 914-3792",
+#     "favorite": True,
+# }
+# ]))
+
+# from functools import reduce
+
+# result = reduce((lambda x, y: x * y), [1, 2, 3, 4])
+
+# print(result)  # 24
+
+# from functools import reduce
+
+# def sum_numbers(numbers):
+#     result = reduce((lambda x, y: x + y), numbers)
+#     return result
+    
+# print(sum_numbers([3, 4, 6, 9, 34, 12]))    
+
+# from functools import reduce
+
+# def amount_payment(payment):
+#     result = reduce((lambda x, y: x + y if y > 0 else x), payment)
+#     return result
+    
+
+# print(amount_payment([1, -3, 4, 5, -10]))
+
+# import utils
+
+# res = utils.minutes_to_miliseconds(21)
+# print(res)
+
+# from utils import minutes_to_seconds
+# from constans import SECOND_IN_MINUTE
+
+# res = minutes_to_seconds (60)
+# print(res)
+# print(SECOND_IN_MINUTE)
+
+
