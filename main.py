@@ -3548,11 +3548,10 @@
 # from functools import reduce
 
 # def amount_payment(payment):
-#     result = reduce((lambda x, y: x + y if y > 0 else x), payment)
+#     result = reduce(lambda x, y: (x if x > 0 else 0) + (y if y > 0 else 0), payment)
 #     return result
     
-
-# print(amount_payment([1, -3, 4, 5, -10]))
+# print(amount_payment([-1, -3, 4, 5, -10]))
 
 # import utils
 
@@ -3566,4 +3565,459 @@
 # print(res)
 # print(SECOND_IN_MINUTE)
 
+# class Human:
+#     name = ""
 
+#     def hello(self, val):
+#         if self.name:
+#             return f"Hello {val}! I am {self.name}."
+#         return f"Hello {val}!"
+
+# bill = Human()
+# print(bill.hello("John"))   # Hello John!
+
+# bill.name = "Bill"
+# print(bill.hello("John"))   # Hello John! I am Bill.
+
+# class Person:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+#     def greeting(self):
+#         return f"Hi {self.name}"
+
+
+# p = Person("Boris", 34)
+# print(p.name)  # Boris
+# print(p.age)  # 34
+# print(p.greeting())  # Hi Boris
+
+# class Human:
+#     name = ''
+#     def voice(self):
+#         print(f"Hello! My name is {self.name}")
+
+
+# class Developer(Human):
+#     field_description = "My Programming language"
+#     language = ""
+#     def make_some_code(self):
+#         return f"{self.field_description} is {self.value}"
+
+
+# class PythonDeveloper(Developer):
+#     value = "Python"
+
+
+# class JSDeveloper(Developer):
+#     value = "JavaScript"
+
+
+# p_dev = PythonDeveloper()
+# p_dev.name = 'Bob'
+# p_dev.voice()   # Hello! My name is Bob
+# print(p_dev.make_some_code())  # My Programming language is Python
+
+# js_dev = JSDeveloper()
+# js_dev.name = "Lara"
+# js_dev.voice()
+# print(js_dev.make_some_code())  # My Programming language is JavaScript
+
+# class A:
+#     x = 'I am A class'
+
+
+# class B:
+#     x = 'I am B class'
+#     y = 'I exist only in B'
+
+
+# class C(A, B):
+#     # x = 'I am C class'
+#     # y = 'I exist not only in C'
+#     z = "This exists only in C"
+
+
+# c = C()
+# print(c.z)  # This exists only in C
+# print(c.y)  # I exist only in B
+# print(c.x)  # I am A class
+
+
+# from collections import UserString
+
+
+# class TruncatedString(UserString):
+#     MAX_LEN = 7
+#     def truncate(self):
+#         self.data = self.data[:self.MAX_LEN]
+
+
+# ts = TruncatedString('abcdefghjklmnop')
+# ts.truncate()
+# print(ts)   # abcdefg
+
+# У цьому прикладі функція input_number вийде з нескінченного циклу тільки, коли користувач введе ціле число. Це приклад використання винятків у Python з метою управління потоком виконання.
+# def input_number():
+#     while True:
+#         try:
+#             num = input("Enter integer number: ")
+#             return int(num)
+#         except:
+#             print(f'"{num}" is not a number. Try again')
+
+
+# num = input_number()
+# print(num**3)
+
+# import string
+
+
+# class NameTooShortError(Exception):
+#     pass
+
+
+# class NameStartsFromLowError(Exception):
+#     pass
+
+
+# def enter_name():
+#     name = input("Enter name: ")
+#     if len(name) < 3:
+#         raise NameTooShortError
+#     if name[0] not in string.ascii_uppercase:
+#         raise NameStartsFromLowError
+
+
+# while True:
+#     try:
+#         name = enter_name()
+#         break
+#     except NameTooShortError:
+#         print('Name is too short, need more than 3 symbols. Try again.')
+#     except NameStartsFromLowError:
+#         print('Name should start from capital letter. Try again.')
+
+# class Person:
+#     count = 2
+
+#     def __init__(self):
+#         pass
+
+
+# class Person:
+#     count = 0
+
+#     def __init__(self):
+#         self.count = 10
+
+
+# person = Person()
+# print(person.count)  # 10
+# print(Person.count)  # 0
+
+# class Animal:
+#     def __init__(self, nickname, weight):
+#         self.nickname = nickname
+#         self.weight = weight
+
+#     def say(self):
+#         pass
+
+#     def change_weight(self, weight):
+#         self.weight = weight
+
+
+# class Owner:
+#     def __init__(self, name, age, address):
+#         self.name = name
+#         self.age = age
+#         self.address = address
+                
+
+#     def info(self):
+#        owner_dict ={
+#          'name':self.name, 
+#          'age':self.age,
+#          'address':self.address
+#        }
+#        return owner_dict
+
+
+# class Dog(Animal):
+#     def __init__(self, nickname, weight, breed, owner):
+#         self.breed = breed
+#         self.owner = owner
+#         super().__init__(nickname, weight)
+
+#     def say(self):
+#         return "Woof"
+
+#     def who_is_owner(self):
+#         return self.owner.info()
+        
+# owner = Owner("Oksana", 43, "Berlin, Gleendowsee")
+# print("owner.info",owner.info())
+# dog = Dog("Simon", 10, "british", owner)
+# print(dog.owner.address)
+# print("dog.who_is_owner",dog.who_is_owner())
+
+# class Animal:
+#     def __init__(self, nickname, weight):
+#         self.nickname = nickname
+#         self.weight = weight
+
+#     def say(self):
+#         pass
+
+
+# class Cat(Animal):
+#     def say(self):
+#         return "Meow"
+
+
+# class Dog(Animal):
+#     def say(self):
+#         return "Woof"
+
+
+# class CatDog(Cat, Dog):
+#     def info(self):
+#         return f"{self.nickname}-{self.weight}"
+        
+# class DogCat(Dog, Cat):
+#     def info(self):
+#         return f"{self.nickname}-{self.weight}"  
+    
+
+# catdog=CatDog("CAT",1)
+# dogcat=DogCat("DOG",5)
+# print("CAT",catdog.say())
+# print("DOG", dogcat.say())
+
+# from collections import UserString
+
+
+# class NumberString(UserString):
+#     def number_count(self):
+#         count_of_number = 0
+#         for i in range(len(self.data)):
+#             if self.data[i] in "0123456789":
+#                 count_of_number+=1
+#         return count_of_number
+        
+        
+            
+# number_string = NumberString("hfhfh 33 hfhjsk 22 1")                
+# print(number_string.number_count())                
+            
+# class IDException(Exception):
+#     pass
+
+
+# def add_id(id_list, employee_id):
+#     if employee_id[0:2] == "01":
+#         id_list.append(employee_id)
+#     else:
+#         raise IDException
+#     return id_list
+    
+# while True:
+#     try:
+#         id_list = list(input ("Input id_list: "))
+#         employee_id = input ("Input employee_id: ")
+#         print(add_id(id_list, employee_id))
+#         break
+#     except IDException:
+#         print('Incorrect employee_id!!!! TRY AGAIN')
+        
+# class Animal:
+#     def __init__(self, nickname, weight):
+#         self.nickname = nickname
+#         self.weight = weight
+
+#     def say(self):
+#         pass
+
+#     def change_weight(self, weight):
+#         self.weight = weight
+
+
+# class Cat(Animal):
+#     def say(self):
+#         return "Meow"
+
+
+# class CatDog:
+       
+# s1 = [    {
+#     "id": 1,
+#     "name": "Wylie Pope",
+#     "phone": "(692) 802-2949",
+#     "email": "est@utquamvel.net",
+#     "favorite": True
+# },
+#     {
+#     "id": 2,
+#     "name": "Wylie 2222",
+#     "phone": "(692) 802-2949",
+#     "email": "est@utquamvel.net",
+#     "favorite": True
+# },
+#     {
+#     "id": 2,
+#     "name": "Wylie 33333",
+#     "phone": "(692) 802-2949",
+#     "email": "est@utquamvel.net",
+#     "favorite": True
+# }]
+        
+# def get_contact_by_id(contacts, id):
+#         result = list(filter(lambda contact: contact.get("id") == id, contacts))
+#         return result if len(result) > 0 else None
+
+
+# print(get_contact_by_id(s1, 3))
+# from datetime import datetime, timedelta
+# d = "12-10-2023" 
+# d2 = datetime.strptime(d,"%d-%m-%Y")    
+# print(d2)  
+# print(d2.year)
+# str_d2=d2.strftime("%Y/%d/%m %H/%M/%S")    
+# print(str_d2)
+                
+# d3 = d2.replace(year=2022)        
+# print(d3)
+# print(d2<d3)
+# res = d2-d3
+# print(res)
+# print(type(res))
+
+# #--------------------
+# current= datetime.now()
+# interval = timedelta(days=2, hours=2)
+# res = current + interval
+# print(res)
+
+# from datetime import datetime
+
+# def day_of_week(date: str):
+#     d = datetime.strptime(date,"%d-%m-%Y")  
+#     day = d.strftime("%A")
+#     print(day)
+#     month = d.strftime("%B")
+#     print(month)
+
+# print(day_of_week("12-10-2023"))
+
+# from datetime import date, timedelta
+
+# start_date = date(year= 2023, month= 10, day= 12)
+# end_date = date(year= 2023, month= 10, day= 25)
+# days = (end_date - start_date).days + 1 
+# print(days)
+# for i in range(days):
+#     res = start_date + timedelta (days=i)
+#     print(res.strftime("%Y-%m-%d"))
+
+# import random
+
+
+# coin = {
+#   1:"orel",
+#   2:"reshka"
+# }
+# count_o = 0
+# count_r = 0
+# sequence = list()
+# while count_o <4 and count_r < 4:
+#   choice = random.randint(1,2)
+#   if choice == 1:
+#     count_o += 1
+#     count_r = 0
+#   else:
+#     count_r += 1
+#     count_o = 0
+#   name = coin[choice]
+#   sequence.append(name)
+# print (sequence, "lentth = ", len(sequence))
+
+#сортування рандомним способом
+
+# import random
+
+# amount = 4
+# arr = [1,2,4,2,122,13]
+# arr_sort = sorted(arr)
+# print(arr)
+# print("**********")
+
+# atempt = 0
+# while arr_sort != arr:
+#   atempt += 1
+#   random.shuffle(arr) 
+#   print(f"#{atempt}    {arr}")
+
+# print(atempt)
+
+#генеруємо автомобільні номери ВС 1254 АО
+# import random
+
+# set_of_letters = ["A", "B", "C", "E", "H", "I", "K", "M", "O", "P", "T", "X"]
+# set_of_number = ["0","1","2","3","4","5","6","7","8","9"]
+# l1 = random.choices(set_of_letters, k=2)
+# l2 = random.choices(set_of_letters, k=2)
+# l3 = random.choices(set_of_number, k=4)
+# res="".join(l1+[" "]+l3+[" "]+l2)
+
+# print(res)
+
+# a = 2.21
+# b = 3.211
+# res = a*b
+# res_round = round(a*b,2)
+# print(res, ">>>>>", res_round)
+
+# from collections import Counter
+
+# student_marks = [1,2,3,3,4,2,1,1,2,3,4,5,5,5,5,5,5,5]
+# mark_counts = dict()
+# for mark in student_marks:
+#   if mark in mark_counts:
+#     mark_counts[mark] += 1
+#   else:
+#     mark_counts[mark] = 1
+
+#print(mark_counts)
+# аналог спрощений:
+# count = Counter(student_marks)
+# print(count)
+# print(count.most_common(1))
+
+
+# text = "missisipi"
+# count_text = Counter(text)
+# print(count_text)
+# print(count_text.most_common(2))
+
+
+# from collections import defaultdict
+
+# LIST COMPREHENSHN
+
+# squares = []
+
+# sq = [i**2 for i in range (20) if i>2]
+# print (sq)
+
+# pr = [i.upper() for i in ("asda","fara")]
+# print(pr)
+
+# res = [i for i in range(1,100) if i%2 == 1]
+# print(res)
+
+# # with dict
+
+# res = { i:i**2 for i in range(100) if i%2 == 0}
+# print(res)
