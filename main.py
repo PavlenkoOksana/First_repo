@@ -4021,3 +4021,2018 @@
 
 # res = { i:i**2 for i in range(100) if i%2 == 0}
 # print(res)
+
+## практика 14.10.2023
+# import re
+# def findGlasses(array):
+#   res = []
+#   # for word in array:
+#   #     if re.search(r"o-+o",word) is not None:
+#   #        res.append(word)
+#   # return res
+#   res = [word for word in array if re.search(r"o-+o",word)]  
+#   return res     
+  
+# print(findGlasses(["pfone", "o----o", "123", "keys"]))
+# print(findGlasses(["pfone", "o--#--o", "123", "keys"]))
+##----------------------------
+# a = [i for i in range(100) if i > 10 and i < 20 ]
+# print(a)
+# a = [i**2 if i > 10 and i < 20 else "i" for i in range(100)  ]
+# print(a)
+##---LISR COMPRECHENSION-------------------------
+# fruits = ["mango", "apple", "lemon", "banan", "ananas"]
+# numbers = [2,3,4,5,6,7,8,9,10,11,13,17,19,23,256,-8,-2,5,-9]
+# res = [fruit.capitalize() for fruit in fruits]
+# print(res)
+# res = [fruit.capitalize() for fruit in fruits if len(fruit) == 5]
+# print(res)
+# res = [fruit.capitalize() if len(fruit) == 5 else fruit for fruit in fruits ]
+# print(res)
+# res = [number for number in numbers if number < 0 and number%2 == 0]
+# print(res)
+
+##---DICT COMPRECHENSION-------------------------
+# fruits = ["mango", "apple", "lemon", "banan", "strawberry","ananas"]
+# fruits_dict = {0: 'mango', 1: 'apple', 2: 'lemon', 3: 'banan', 4: 'strawberry', 5: 'ananas'}
+# res = {fruit:len(fruit) for fruit in fruits}
+# print(res)
+# res = {fruits.index(fruit):fruit for fruit in fruits}
+# print(res)
+# res = {index:fruit for index, fruit in enumerate(fruits)}
+# print(res)
+# res = {index:fruit for index, fruit in fruits_dict.items() if index%2 == 0}
+# print(res)
+# res = {(fruit,index) if index%2 == 0 else (index, fruit) for index, fruit in fruits_dict.items() }
+# print(res)
+# res = dict([(fruit,index) if index%2 == 0 else (index, fruit) for index, fruit in fruits_dict.items()])
+# print(res)
+##----------------------------
+# BUTTONS = (1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
+# GROUPS_OF_SYMBOLS = (
+#     ".,?!:",
+#     "ABC",
+#     "DEF",
+#     "GHI",
+#     "JKL",
+#     "MNO",
+#     "PQRS",
+#     "TUV",
+#     "WXYZ",
+#     " ",
+# )
+
+# TRANSLIT_DICT = {}
+
+
+# for button, g_of_symbols in zip(BUTTONS, GROUPS_OF_SYMBOLS):
+#     for p, s in enumerate(g_of_symbols):
+#         count = p + 1
+#         TRANSLIT_DICT[ord(s.lower())] = str(button) * count
+#         TRANSLIT_DICT[ord(s)] = str(button) * count
+
+
+# def sequence_buttons(string):
+#     return string.translate(TRANSLIT_DICT)
+
+##----------------------------
+# btns_symb  = {    
+#     1:".,?!:",
+#     2:"ABC",
+#     3:"DEF",
+#     4:"GHI",
+#     5:"JKL",
+#     6:"MNO",
+#     7:"PQRS",
+#     8:"TUV",
+#     9:"WXYZ",
+#     0:" "    
+# }
+# TRANSLIT_DICT = {}
+
+# for button, g_of_symbols in btns_symb.items():
+#     for p, s in enumerate(g_of_symbols):
+#         count = p+1
+#         TRANSLIT_DICT[ord(s.lower())] = str(button)*count
+#         TRANSLIT_DICT[ord(s)] = str(button)*count
+
+# def seguence_button (string):
+#     return string.translate(TRANSLIT_DICT)   
+
+# print(seguence_button("Hello, World!"))     
+##----------------------------
+# def sequence_buttons(string):
+#     # Створюємо словник для відповідності символів та послідовностей кнопок
+#     button_dict = {
+#         '1': '.,?!:',
+#         '2': 'ABC',
+#         '3': 'DEF',
+#         '4': 'GHI',
+#         '5': 'JKL',
+#         '6': 'MNO',
+#         '7': 'PQRS',
+#         '8': 'TUV',
+#         '9': 'WXYZ',
+#         '0': ' '
+#     }
+
+#     string = string.upper()
+#     button_sequence = ''
+#     for char in string:
+#         for key, value in button_dict.items():
+#             if char in value:
+#                 button_sequence += key * (value.index(char) + 1)
+#                 break
+
+#     return button_sequence
+# print(sequence_buttons("Hello, World!"))
+##--ANAGRAM--------------------------
+# from collections import Counter
+
+
+# def is_anagram(word1, word2):
+#   print(Counter(word1))
+#   return Counter(word1) == Counter(word2)
+
+
+# def is_anagram_2(word1, word2):
+#   return(len(word1)==len(word2)) and (set(word1)==set(word2))
+
+
+# res = is_anagram ("add","aad")
+# print(res)
+# res2 = is_anagram_2 ("add","aad")
+# print(res2)
+## кінець практика 14.10.2023
+
+# class Session:
+#     def __init__(self, addr, port=8080):
+#         self.connected = True
+#         self.addr = addr
+#         self.port = port
+
+#     def __enter__(self):
+#         print(f"connected to {self.addr}:{self.port}")
+#         return self
+
+#     def __exit__(self, exception_type, exception_value, traceback):
+#         self.connected = False
+#         if exception_type is not None:
+#             print("Some error!")
+#         else:
+#             print("No problem")
+
+
+# with Session("host", "port") as session:
+#     raise Exception("OH NO!")
+
+# class Iterable:
+#     MAX_VALUE = 10
+#     def __init__(self):
+#         self.current_value = 0
+
+#     def __next__(self):
+#         if self.current_value < self.MAX_VALUE:
+#             self.current_value += 1
+#             return self.current_value
+#         raise StopIteration
+
+
+# class CustomIterator:
+#     def __iter__(self):
+#         return Iterable()
+
+
+# c = CustomIterator()
+# for i in c:
+#     print(i)
+
+# class Secret:
+#     public_field = 'this is public'
+#     _private_field = 'avoid using this please'
+#     __real_secret = 'I am hidden'
+
+# s = Secret()
+# print(s.public_field)           # this is public
+# print(s._private_field)         # avoid using this please
+# #print(s.__real_secret) # error
+# print(s._Secret__real_secret)   # I am hidden
+
+# class PositiveNumber:
+#     def __init__(self):
+#         self.__value = None
+
+#     @property
+#     def value(self):
+#         return self.__value
+
+#     @value.setter
+#     def value(self, new_value):
+#         if new_value > 0:
+#             self.__value = new_value
+#         else:
+#             print('Only numbers greater zero accepted')
+
+
+# p = PositiveNumber()
+# print(p.value)
+# p.value = 1
+# print(p.value)  # 1
+# p.value = -1    # Only numbers greater zero accepted
+# print(p.value)
+# p._PositiveNumber__value = -1
+# print(p.value)  # -1
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = None
+#         self.__y = None
+#         self.x = x
+#         self.y = y
+
+#     @property
+#     def x(self):
+#         return self.__x
+
+#     @x.setter
+#     def x(self, x):
+#         if (type(x) == int) or (type(x) == float):
+#             self.__x = x
+
+#     @property
+#     def y(self):
+#         return self.__y
+
+#     @y.setter
+#     def y(self, y):
+#         if (type(y) == int) or (type(y) == float):
+#             self.__y = y
+
+#     def __str__(self):
+#         return f"Point({self.x},{self.y})"
+
+
+# class Vector:
+#     def __init__(self, coordinates: Point):
+#         self.coordinates = coordinates
+
+#     def __setitem__(self, index, value):
+#         if index == 0:
+#             self.coordinates.x = value
+#         if index == 1:
+#             self.coordinates.y = value
+
+#     def __getitem__(self, index):
+#         if index == 0:
+#             return self.coordinates.x
+#         if index == 1:
+#             return self.coordinates.y
+
+#     def __call__(self, value=None):
+#         if value:
+#             self.coordinates.x = self.coordinates.x * value
+#             self.coordinates.y = self.coordinates.y * value
+#         return self.coordinates.x, self.coordinates.y
+
+#     def __add__(self, vector):
+#         x = self.coordinates.x + vector.coordinates.x
+#         y = self.coordinates.y + vector.coordinates.y
+#         return Vector(Point(x, y))
+
+#     def __sub__(self, vector):
+#         x = self.coordinates.x - vector.coordinates.x
+#         y = self.coordinates.y - vector.coordinates.y
+#         return Vector(Point(x, y))
+
+#     def __mul__(self, vector):
+#         return (
+#                 self.coordinates.x * vector.coordinates.x
+#                 + self.coordinates.y * vector.coordinates.y
+#         )
+
+#     def len(self):
+#         return (self.coordinates.x ** 2 + self.coordinates.y ** 2) ** 0.5
+
+#     def __str__(self):
+#         return f"Vector({self.coordinates.x},{self.coordinates.y})"
+
+#     def __eq__(self, vector):
+#         return self.len() == vector.len()
+        
+
+#     def __ne__(self, vector):
+#         return self.len() != vector.len()
+        
+
+#     def __lt__(self, vector):
+#         return self.len() < vector.len()
+
+#     def __gt__(self, vector):
+#         return self.len() > vector.len()
+        
+
+#     def __le__(self, vector):
+#         return self.len() <= vector.len()
+        
+
+#     def __ge__(self, vector):
+#         return self.len() >= vector.len()
+        
+# vector1 = Vector(Point(1, 10))
+# vector2 = Vector(Point(3, 10))
+
+# print(vector1 == vector2)  # False
+# print(vector1 != vector2)  # True
+# print(vector1 > vector2)  # False
+# print(vector1 < vector2)  # True
+# print(vector1 >= vector2)  # False
+# print(vector1 <= vector2)  # True
+
+# from random import randrange
+
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = None
+#         self.__y = None
+#         self.x = x
+#         self.y = y
+
+#     @property
+#     def x(self):
+#         return self.__x
+
+#     @x.setter
+#     def x(self, x):
+#         if (type(x) == int) or (type(x) == float):
+#             self.__x = x
+
+#     @property
+#     def y(self):
+#         return self.__y
+
+#     @y.setter
+#     def y(self, y):
+#         if (type(y) == int) or (type(y) == float):
+#             self.__y = y
+
+#     def __str__(self):
+#         return f"Point({self.x},{self.y})"
+
+
+# class Vector:
+#     def __init__(self, coordinates: Point):
+#         self.coordinates = coordinates
+
+#     def __setitem__(self, index, value):
+#         if index == 0:
+#             self.coordinates.x = value
+#         if index == 1:
+#             self.coordinates.y = value
+
+#     def __getitem__(self, index):
+#         if index == 0:
+#             return self.coordinates.x
+#         if index == 1:
+#             return self.coordinates.y
+
+#     def __call__(self, value=None):
+#         if value:
+#             self.coordinates.x = self.coordinates.x * value
+#             self.coordinates.y = self.coordinates.y * value
+#         return self.coordinates.x, self.coordinates.y
+
+#     def __add__(self, vector):
+#         x = self.coordinates.x + vector.coordinates.x
+#         y = self.coordinates.y + vector.coordinates.y
+#         return Vector(Point(x, y))
+
+#     def __sub__(self, vector):
+#         x = self.coordinates.x - vector.coordinates.x
+#         y = self.coordinates.y - vector.coordinates.y
+#         return Vector(Point(x, y))
+
+#     def __mul__(self, vector):
+#         return (
+#                 self.coordinates.x * vector.coordinates.x
+#                 + self.coordinates.y * vector.coordinates.y
+#         )
+
+#     def len(self):
+#         return (self.coordinates.x ** 2 + self.coordinates.y ** 2) ** 0.5
+
+#     def __str__(self):
+#         return f"Vector({self.coordinates.x},{self.coordinates.y})"
+
+#     def __eq__(self, vector):
+#         return self.len() == vector.len()
+
+#     def __ne__(self, vector):
+#         return self.len() != vector.len()
+
+#     def __lt__(self, vector):
+#         return self.len() < vector.len()
+
+#     def __gt__(self, vector):
+#         return self.len() > vector.len()
+
+#     def __le__(self, vector):
+#         return self.len() <= vector.len()
+
+#     def __ge__(self, vector):
+#         return self.len() >= vector.len()
+
+
+# class Iterable:
+#     def __init__(self, max_vectors, max_points):
+#         self.max_vectors = max_vectors
+#         self.max_points = max_points
+#         self.current_index = 0
+#         self.vectors = []
+#         for i in range(self.max_vectors):
+#             vect = Vector(Point((randrange(0, self.max_points)),(randrange(0, self.max_points))))
+#             self.vectors.append(vect)
+        
+#     def __next__(self):
+#         if self.current_index < self.max_vectors:
+#             self.current_index += 1
+#             return self.vectors[self.current_index-1]
+#         raise StopIteration
+
+
+# class RandomVectors:
+#     def __init__(self, max_vectors=10, max_points=50):
+#         self.max_vectors = max_vectors
+#         self.max_points = max_points
+
+#     def __iter__(self):
+#         return Iterable(self.max_vectors, self.max_points)
+        
+
+# vectors1 = RandomVectors()
+# for vector in vectors1:
+#     print(vector)
+# print("***************************************")
+# vectors = RandomVectors(5, 5)
+
+# for vector in vectors:
+#     print(vector)
+
+# def mul(a,b):
+#   return a*b
+
+# d = {
+#   "a":2,
+#   "b":3,
+#   "operation":mul
+# }
+
+# print(d["operation"](3,3))
+# res=mul
+# print(res)
+# print(res(2,2))
+
+#pass function as an argument
+
+# def mul(a,b):
+#     return a*b
+
+# def add(a,b):
+#     return a+b
+
+# def operate (a,b, func):  # func - funktor
+#     return func (a,b)
+
+# res= operate(1,2,add)
+# print(res)
+
+# def mul(a,b):
+#     return a*b
+
+# def add(a,b):
+#     return a+b
+
+# def operator(sign):
+#   if sign == "*":
+#      return mul
+#   elif sign == "+":
+#      return add
+#   return
+
+
+# add_as_object = operator("*")
+# res = add_as_object(1,2)
+# print(res)
+
+
+# замикання
+
+# def greeting(name):
+#   def message(msg):
+#     return f"{name} - {msg}"
+#   #print(message("go to work!!!"))
+#   return message
+
+
+# msg_for_boris = greeting("Boris")
+# print(msg_for_boris)
+# print(msg_for_boris("Go to work"))
+# print(msg_for_boris("Go to sleep"))
+# print(msg_for_boris("Time to study"))
+
+# currying
+
+# def taxer_sim(base_tax, money):
+#   if money >= 10000:
+#     base_tax = 1.5*base_tax
+
+#   return money - base_tax * money
+
+# m_u =taxer_sim(0.1, 5000)
+# m_s = taxer_sim(0.1, 25000)
+# print (m_u, m_s)
+
+# def taxer(base_tax):
+#   def calc(money):
+#     nonlocal base_tax
+#     if money >= 10000:
+#       base_tax = 1.5 * base_tax
+#     return money - base_tax*money
+#   return calc
+
+# ukr = taxer(0.1)
+# swd = taxer(0.5)
+
+# print(ukr(5000))
+# print(swd(5000))
+
+# ukr1 = taxer(0.1)(10000)
+# print (ukr1)
+
+# decorators
+
+# def extend_print(func):
+#     def wrapper(*args):
+#         print("before execution")
+#         res = func(*args)
+#         print("after execution")
+#         return res
+#     return wrapper
+
+
+# @extend_print
+# def print_full_name(name, surname):
+#     print(f"Hello {name} {surname} !!!")
+
+# print_full_name ("Volodymyr","Kalujniy")
+
+# from time import time, sleep
+
+# def measure(func):
+#   def wrapper(*args, **kwargs):
+#     t = time()
+#     func(*args, **kwargs)
+#     print(func.__name__, "executed in ", time() -t)
+#   return wrapper
+
+# @measure
+# def sleepy_func(sleep_time):
+#   print("befor sleep")
+#   sleep(sleep_time)
+#   print("finally awake")
+
+
+# sleepy_func(5)
+# sleepy_func(0.5)
+
+# iterotor
+
+# lazy load
+
+# def simple_generator():
+
+#   print(1)
+#   yield "First"
+#   print(2)
+#   yield "Second"
+
+# for i in simple_generator():
+#   print(i)
+
+# simple_generator = (i**2 for i in range(10)) # generator
+
+# for i in simple_generator:
+#   print(i)
+
+# [i*2 for i in rande(10)] # list
+
+# map
+# names = ["dan", "jane", "steve", "ivan"]
+# res = [word.title() for word in names]
+# print(res)
+
+# res1 = map(lambda name:name.title(),names)
+# print(list(res1))
+
+# reduce
+
+# from functools import reduce
+
+# num = [0,1,2,3,4,5]
+# res = reduce(lambda a,b:a+b,num)
+# print(res)
+
+# expenses = {
+#     "hotel": 150,
+#     "breakfast": 30,
+#     "taxi": 15,
+#     "lunch": 20
+# }
+
+
+# file_name = "expenses.txt"
+# with open(file_name, "w") as fh:
+#     for key, value in expenses.items():
+#         fh.write(f"{key}|{value}\n")
+
+# file_name = "expenses.txt"
+# expenses = {}
+# with open(file_name, "r") as fh:
+#     raw_expenses = fh.readlines()
+#     for line in raw_expenses:
+#         key, value = line.split("|")
+#         expenses[key] = int(value)
+
+# print(expenses)
+
+# import pickle
+
+
+# some_data = {
+#     (1, 3.5): 'tuple',
+#     2: [1, 2, 3],
+#     'a': {'key': 'value'}
+# }
+
+# byte_string = pickle.dumps(some_data)
+# print(type(byte_string), byte_string)
+# unpacked = pickle.loads(byte_string)
+# print(type(unpacked), unpacked)
+
+# print(unpacked == some_data)    # True
+# print(unpacked is some_data)    # False
+
+# import pickle
+
+
+# some_data = {
+#     (1, 3.5): 'tuple',
+#     2: [1, 2, 3],
+#     'a': {'key': 'value'}
+# }
+
+# file_name = 'data.bin'
+
+# with open(file_name, "wb") as fh:
+#     pickle.dump(some_data, fh)
+
+
+# with open(file_name, "rb") as fh:
+#     unpacked = pickle.load(fh)
+
+
+# print(unpacked)
+# print(unpacked == some_data)    # True
+# print(unpacked is some_data)    # False
+
+# import pickle
+
+
+# class Human:
+#     def __init__(self, name):
+#         self.name = name
+
+
+# bob = Human("Bob")
+# print(bob)
+# encoded_bob = pickle.dumps(bob)
+
+# decoded_bob = pickle.loads(encoded_bob)
+
+# print(bob.name == decoded_bob.name)    # True
+# print(decoded_bob)
+
+# import json
+
+
+# some_data = {'key': 'value', 2: [1, 2, 3], 'tuple': (5, 6), 'a': {'key': 'value'}}
+# file_name = 'data.json'
+
+# with open(file_name, "w") as fh:
+#     json.dump(some_data, fh)
+
+
+# with open(file_name, "r") as fh:
+#     unpacked = json.load(fh)
+
+
+# unpacked is some_data    # False
+# unpacked == some_data    # False
+
+# unpacked['key'] == some_data['key']     # True
+# unpacked['a'] == some_data['a']         # True
+# unpacked['2'] == some_data[2]           # True
+# unpacked['tuple'] == [5, 6]             # True
+
+
+# import csv
+
+
+# with open('eggs.csv', 'w', newline='') as fh:
+#     spam_writer = csv.writer(fh)
+#     spam_writer.writerow(['Spam'] * 5 + ['Baked Beans'])
+#     spam_writer.writerow(['Spam', 'Lovely Spam', 'Wonderful Spam'])
+
+
+# with open('eggs.csv', newline='') as fh:
+#     spam_reader = csv.reader(fh)
+#     for row in spam_reader:
+#         print(', '.join(row))
+
+# import csv
+
+
+# with open('names.csv', 'w', newline='') as fh:
+#     field_names = ['first_name', 'last_name']
+#     writer = csv.DictWriter(fh, fieldnames=field_names)
+#     writer.writeheader()
+#     writer.writerow({'first_name': 'Baked', 'last_name': 'Beans'})
+#     writer.writerow({'first_name': 'Lovely', 'last_name': 'Spam'})
+#     writer.writerow({'first_name': 'Wonderful', 'last_name': 'Spam'})
+
+
+# with open('names.csv', newline='') as fh:
+#     reader = csv.DictReader(fh)
+#     for row in reader:
+#         print(row['first_name'], row['last_name'])
+
+# import pickle
+
+
+# class Reader:
+#     def __init__(self, file):
+#         self.file = file
+#         self.fh = open(self.file)
+#         self.position = 0
+
+#     def close(self):
+#         self.fh.close()
+
+#     def read(self, size=1):
+#         data = self.fh.read(size)
+#         self.position = self.fh.tell()
+#         return data
+
+#     def __getstate__(self):
+#         attributes = self.__dict__.copy()
+#         attributes['fh'] = None
+#         return attributes
+
+# my_list = [1, 2, 3]
+# copy_list = my_list
+# copy_list.append(4)
+# print(my_list)  # [1, 2, 3, 4]
+
+# my_list = [1, 2, 3]
+# copy_list = my_list[:]
+# copy_list.append(4)
+# print(my_list)  # [1, 2, 3]
+
+# d = {1: 'a'}
+# d_copy = {**d}
+# d_copy[2] = 'b'
+# print(d)        # {1: 'a'}
+
+# import copy
+
+
+# my_list = [1, 2, {1: 'a'}]
+# copy_list = copy.copy(my_list)
+# copy_list.append(4)
+# print(my_list)      # [1, 2, {1: 'a'}]
+# print(copy_list)    # [1, 2, {1: 'a'}, 4]
+
+# copy_list[2][2] = 'b'
+# print(my_list)    # [1, 2, {1: 'a', 2: 'b'}]
+
+# import copy
+
+
+# my_list = [1, 2, {1: 'a'}]
+# copy_list = copy.deepcopy(my_list)
+# copy_list.append(4)
+# print(my_list)      # [1, 2, {1: 'a'}]
+# print(copy_list)    # [1, 2, {1: 'a'}, 4]
+
+# copy_list[2][2] = 'b'
+# print(my_list)    # [1, 2, {1: 'a'}]
+
+# import pickle
+
+
+# def write_contacts_to_file(filename, contacts):
+#     with open(filename, "wb") as fh:
+#        pickle.dump(contacts, fh)
+
+
+# def read_contacts_from_file(filename):
+#     with open(filename, "rb") as fh:
+#        unpacked = pickle.load(fh)
+#     return unpacked
+
+    
+# write_contacts_to_file('1111111.txt', [    {
+#     "name": "Allen Raymond",
+#     "email": "nulla.ante@vestibul.co.uk",
+#     "phone": "(992) 914-3792",
+#     "favorite": False,
+# },
+#     {
+#     "name": "Oksana Pavlenko",
+#     "email": "ok@gmail.com",
+#     "phone": "(111) 777777777",
+#     "favorite": False,
+# }])        
+    
+# print(read_contacts_from_file('1111111.txt'))
+
+
+# import json
+
+
+# def write_contacts_to_file(filename, contacts):
+#   dict_contacts = {}
+#   dict_contacts["contacts"] = contacts
+#   with open(filename, "w") as fh:
+#     json.dump(dict_contacts, fh)
+    
+# def read_contacts_from_file(filename):
+#   with open(filename, "r") as fh:
+#     unpacked = json.load(fh)
+#   return unpacked["contacts"]
+    
+        
+    
+# write_contacts_to_file('11111.json', [    {
+#     "name": "Allen Raymond",
+#     "email": "nulla.ante@vestibul.co.uk",
+#     "phone": "(992) 914-3792",
+#     "favorite": False,
+# },
+#     {
+#     "name": "Oksana Pavlenko",
+#     "email": "ok@gmail.com",
+#     "phone": "(111) 777777777",
+#     "favorite": False,
+# }])        
+
+# print (read_contacts_from_file('11111.json'))
+
+# import csv
+
+
+# def write_contacts_to_file(filename, contacts):
+#   with open(filename, 'w', newline='') as fh:
+#     field_names = ['name', 'email', 'phone', 'favorite']
+#     writer = csv.DictWriter(fh, fieldnames=field_names)
+#     writer.writeheader()
+#     for contact in contacts:
+#        writer.writerow({'name': contact["name"], 'email': contact["email"], 'phone': contact["phone"], 'favorite': contact["favorite"]})
+    
+
+# def read_contacts_from_file(filename):    
+#     list_contacts = []
+#     i=0
+#     with open(filename, "r",newline='') as fh:
+#        reader = csv.DictReader(fh)
+#        for row in reader:
+#           list_contacts.append({})
+#           list_contacts[i]['name'] = row['name']
+#           list_contacts[i]['email'] = row['email']
+#           list_contacts[i]['phone'] = row['phone']
+#           if row['favorite'] == 'False':
+#              list_contacts[i]['favorite'] = False
+#           elif row['favorite'] == 'True':
+#              list_contacts[i]['favorite'] = True
+#           i+=1
+
+#     return list_contacts  
+        
+            
+# write_contacts_to_file('11111.csv', [    {
+#     "name": "Allen Raymond",
+#     "email": "nulla.ante@vestibul.co.uk",
+#     "phone": "(992) 914-3792",
+#     "favorite": True,
+# },
+#     {
+#     "name": "Oksana Pavlenko",
+#     "email": "ok@gmail.com",
+#     "phone": "(111) 777777777",
+#     "favorite": False,
+# },
+#     {
+#     "name": "Ben Camb",
+#     "email": "bk@gmail.com",
+#     "phone": "(2222) 111111111",
+#     "favorite": False,
+# }
+# ])                    
+            
+# print(read_contacts_from_file('11111.csv'))    
+
+# import pickle
+
+
+# class Person:
+#     def __init__(self, name: str, email: str, phone: str, favorite: bool):
+#         self.name = name
+#         self.email = email
+#         self.phone = phone
+#         self.favorite = favorite  
+
+
+# class Contacts:
+#     def __init__(self, filename: str, contacts: list[Person] = None):
+#         self.filename = filename
+#         if contacts is None:
+#             contacts = []
+#         else:
+#             self.contacts = contacts
+     
+#     def close(self):
+#         self.fh.close()
+
+#     def save_to_file(self):
+#         with open(self.filename, "wb") as fh:
+#             #pickle.dump(self.contacts, fh)    
+#             #pickle.dump(Contacts(self.filename, self.contacts), fh)
+#             pickle.dump(self.contacts, fh)   
+                    
+#     def read_from_file(self):
+#       with open(self.filename, "rb") as fh:
+#         unpacked = pickle.load(fh)
+#       print("unpacked!!!!!!!!!!!!!!!!!", unpacked[0].name)
+#       print("unpacked!!!!!!!!!!!!!!!!!", unpacked[1].favorite)
+#       res_contacts = []
+#       for i in range(len(unpacked)):
+#           res_contacts.append(Person(unpacked[i].name, unpacked[i].email, unpacked[i].phone, unpacked[i].favorite,))
+#       return Contacts(self.filename,res_contacts)
+
+# contacts = [
+#     Person(
+#         "Allen Raymond",
+#         "nulla.ante@vestibul.co.uk",
+#         "(992) 914-3792",
+#         False,
+#     ),
+#     Person(
+#         "Chaim Lewis",
+#         "dui.in@egetlacus.ca",
+#         "(294) 840-6685",
+#         False,
+#     ),
+# ]
+
+# persons = Contacts("user_class.dat", contacts)
+# persons.save_to_file()
+# person_from_file = persons.read_from_file()
+# print(persons.contacts[0].name)  # True
+# print(person_from_file.contacts[0].name)
+# print(persons == person_from_file)  # False
+# print(persons.contacts[0] == person_from_file.contacts[0])  # False
+# print(persons.contacts[0].name == person_from_file.contacts[0].name)  # True
+# print(persons.contacts[0].email == person_from_file.contacts[0].email)  # True
+# print(persons.contacts[0].phone == person_from_file.contacts[0].phone)  # True
+
+
+# -------------------------------------------------------------------------------
+
+# import pickle
+
+
+# class Person:
+#     def __init__(self, name: str, email: str, phone: str, favorite: bool):
+#         self.name = name
+#         self.email = email
+#         self.phone = phone
+#         self.favorite = favorite  
+
+
+# class Contacts:
+#     def __init__(self, filename: str, contacts: list[Person] = None):
+#         self.filename = filename
+#         if contacts is None:
+#             contacts = []
+#         else:
+#             self.contacts = contacts
+     
+#     def close(self):
+#         self.fh.close()
+
+#     def save_to_file(self):
+#         with open(self.filename, "wb") as fh:
+#            pickle.dump(self, fh)   
+                    
+#     def read_from_file(self):
+#       with open(self.filename, "rb") as fh:
+#         unpacked = pickle.load(fh)
+#       return unpacked
+
+# contacts = [
+#     Person(
+#         "Allen Raymond",
+#         "nulla.ante@vestibul.co.uk",
+#         "(992) 914-3792",
+#         False,
+#     ),
+#     Person(
+#         "Chaim Lewis",
+#         "dui.in@egetlacus.ca",
+#         "(294) 840-6685",
+#         False,
+#     ),
+# ]
+
+# persons = Contacts("user_class.dat", contacts)
+# persons.save_to_file()
+# person_from_file = persons.read_from_file()
+# print(persons.contacts[0].name)  # True
+# print(person_from_file.contacts[0].name)
+# print(persons == person_from_file)  # False
+# print(persons.contacts[0] == person_from_file.contacts[0])  # False
+# print(persons.contacts[0].name == person_from_file.contacts[0].name)  # True
+# print(persons.contacts[0].email == person_from_file.contacts[0].email)  # True
+# print(persons.contacts[0].phone == person_from_file.contacts[0].phone)  # True
+
+# import pickle
+
+
+# class Person:
+#     def __init__(self, name: str, email: str, phone: str, favorite: bool):
+#         self.name = name
+#         self.email = email
+#         self.phone = phone
+#         self.favorite = favorite
+
+
+# class Contacts:
+#     #count_save = 0
+#     def __init__(self, filename: str, contacts: list[Person] = None):
+#         if contacts is None:
+#             contacts = []
+#         self.filename = filename
+#         self.contacts = contacts
+#         self.count_save = 0
+        
+
+#     def save_to_file(self):
+#         with open(self.filename, "wb") as file:
+#             pickle.dump(self, file)
+                
+#     def read_from_file(self):
+#         with open(self.filename, "rb") as file:
+#             content = pickle.load(file)
+#         return content
+
+#     def __getstate__(self):
+#         attr = self.__dict__.copy()
+#         attr["count_save"] += 1
+#         return attr
+        
+# contacts = [
+#     Person(
+#         "Allen Raymond",
+#         "nulla.ante@vestibul.co.uk",
+#         "(992) 914-3792",
+#         False,
+#     ),
+#     Person(
+#         "Chaim Lewis",
+#         "dui.in@egetlacus.ca",
+#         "(294) 840-6685",
+#         False,
+#     ),
+# ]
+# persons = Contacts("user_class.dat", contacts)
+# persons.save_to_file()
+# first = persons.read_from_file()
+# first.save_to_file()
+# second = first.read_from_file()
+# second.save_to_file()
+# third = second.read_from_file()
+
+# print("persons.count_save", persons.count_save)  # 0
+# print("first.count_save", first.count_save)  # 1
+# print("second.count_save", second.count_save)  # 2
+# print("third.count_save", third.count_save)  # 3
+        
+
+# import pickle
+
+
+# class Person:
+#     def __init__(self, name: str, email: str, phone: str, favorite: bool):
+#         self.name = name
+#         self.email = email
+#         self.phone = phone
+#         self.favorite = favorite
+
+
+# class Contacts:
+#     def __init__(self, filename: str, contacts: list[Person] = None):
+#         if contacts is None:
+#             contacts = []
+#         self.filename = filename
+#         self.contacts = contacts
+#         self.count_save = 0
+#         self.is_unpacking = False
+        
+
+#     def save_to_file(self):
+#         with open(self.filename, "wb") as file:
+#             pickle.dump(self, file)
+
+#     def read_from_file(self):
+#         with open(self.filename, "rb") as file:
+#             content = pickle.load(file)
+#         return content
+
+#     def __getstate__(self):
+#         attributes = self.__dict__.copy()
+#         attributes["count_save"] = attributes["count_save"] + 1
+#         return attributes
+
+#     def __setstate__(self, value):
+#         self.__dict__ = value
+#         self.is_unpacking = True
+
+
+# contacts = [
+#     Person(
+#         "Allen Raymond",
+#         "nulla.ante@vestibul.co.uk",
+#         "(992) 914-3792",
+#         False,
+#     ),
+#     Person(
+#         "Chaim Lewis",
+#         "dui.in@egetlacus.ca",
+#         "(294) 840-6685",
+#         False,
+#     ),
+# ]
+# persons = Contacts("user_class.dat", contacts)
+# persons.save_to_file()
+# person_from_file = persons.read_from_file()
+# print(persons.is_unpacking)  # False
+# print(person_from_file.is_unpacking)  # True
+
+# import copy
+
+
+# class Person:
+#     def __init__(self, name: str, email: str, phone: str, favorite: bool):
+#         self.name = name
+#         self.email = email
+#         self.phone = phone
+#         self.favorite = favorite
+
+
+# def copy_class_person(person):
+#     return copy.copy(person)
+
+    
+
+# person = Person(
+#     "Allen Raymond",
+#     "nulla.ante@vestibul.co.uk",
+#     "(992) 914-3792",
+#     False,
+# )
+
+# copy_person = copy_class_person(person)
+
+# print(copy_person == person)  # False
+# print(copy_person.name == person.name)  # True
+
+# import copy
+# import pickle
+
+
+# class Person:
+#     def __init__(self, name: str, email: str, phone: str, favorite: bool):
+#         self.name = name
+#         self.email = email
+#         self.phone = phone
+#         self.favorite = favorite
+
+
+# def copy_class_person(person):
+#     return copy.copy(person)
+
+
+# class Contacts:
+#     def __init__(self, filename: str, contacts: list[Person] = None):
+#         if contacts is None:
+#             contacts = []
+#         self.filename = filename
+#         self.contacts = contacts
+#         self.is_unpacking = False
+#         self.count_save = 0
+
+#     def save_to_file(self):
+#         with open(self.filename, "wb") as file:
+#             pickle.dump(self, file)
+
+#     def read_from_file(self):
+#         with open(self.filename, "rb") as file:
+#             content = pickle.load(file)
+#         return content
+
+#     def __getstate__(self):
+#         attributes = self.__dict__.copy()
+#         attributes["count_save"] = attributes["count_save"] + 1
+#         return attributes
+
+#     def __setstate__(self, value):
+#         self.__dict__ = value
+#         self.is_unpacking = True
+
+
+# def copy_class_contacts(contacts):
+#     return copy.deepcopy(contacts)
+    
+
+# contacts = [
+#     Person(
+#         "Allen Raymond",
+#         "nulla.ante@vestibul.co.uk",
+#         "(992) 914-3792",
+#         False,
+#     ),
+#     Person(
+#         "Chaim Lewis",
+#         "dui.in@egetlacus.ca",
+#         "(294) 840-6685",
+#         False,
+#     ),
+# ]
+# persons = Contacts("user_class.dat", contacts)
+
+# new_persons = copy_class_contacts(persons)
+
+# new_persons.contacts[0].name = "Another name"
+
+# print(persons.contacts[0].name)  # Allen Raymond
+# print(new_persons.contacts[0].name)  # Another name
+
+# import copy
+# import pickle
+
+
+# class Person:
+#     def __init__(self, name: str, email: str, phone: str, favorite: bool):
+#         self.name = name
+#         self.email = email
+#         self.phone = phone
+#         self.favorite = favorite
+
+#     def __copy__(self):
+#         copy_obj = Person(self.name, self.email, self.phone, self.favorite)
+#         copy_obj.name = copy.copy(self.name)
+#         copy_obj.email = copy.copy(self.email)
+#         copy_obj.phone = copy.copy(self.phone)
+#         copy_obj.favorite = copy.copy(self.favorite)
+#         return copy_obj  
+    
+     
+
+
+# class Contacts:
+#     def __init__(self, filename: str, contacts: list[Person] = None):
+#         if contacts is None:
+#             contacts = []
+#         self.filename = filename
+#         self.contacts = contacts
+#         self.is_unpacking = False
+#         self.count_save = 0
+
+#     def save_to_file(self):
+#         with open(self.filename, "wb") as file:
+#             pickle.dump(self, file)
+
+#     def read_from_file(self):
+#         with open(self.filename, "rb") as file:
+#             content = pickle.load(file)
+#         return content
+
+#     def __getstate__(self):
+#         attributes = self.__dict__.copy()
+#         attributes["count_save"] = attributes["count_save"] + 1
+#         return attributes
+
+#     def __setstate__(self, value):
+#         self.__dict__ = value
+#         self.is_unpacking = True
+
+#     def __copy__(self):
+#         copy_obj = Contacts(self.filename, self.contacts)
+#         copy_obj.filename = copy.copy(self.filename)
+#         copy_obj.contacts = copy.copy(self.contacts)
+#         copy_obj.is_unpacking = copy.copy(self.is_unpacking)
+#         copy_obj.count_save = copy.copy(self.count_save)
+#         return copy_obj  
+        
+        
+
+#     def __deepcopy__(self, memo):
+#         copy_obj = Contacts(self.filename, self.contacts)
+#         memo[id(copy_obj)] = copy_obj
+#         copy_obj.filename = copy.deepcopy(self.filename)
+#         copy_obj.contacts = copy.deepcopy(self.contacts)
+#         copy_obj.is_unpacking = copy.deepcopy(self.is_unpacking)
+#         copy_obj.count_save = copy.deepcopy(self.count_save)
+#         return copy_obj
+        
+        
+        
+        
+# contacts = [
+#     Person(
+#         "Allen Raymond",
+#         "nulla.ante@vestibul.co.uk",
+#         "(992) 914-3792",
+#         False,
+#     ),
+#     Person(
+#         "Chaim Lewis",
+#         "dui.in@egetlacus.ca",
+#         "(294) 840-6685",
+#         False,
+#     ),
+# ]
+# man = Person(
+#         "Allen Raymond",
+#         "nulla.ante@vestibul.co.uk",
+#         "(992) 914-3792",
+#         False,
+#     )
+
+# new_man = copy.copy(man)
+# print(new_man == man)
+# print(new_man.name)
+
+# persons = Contacts("user_class.dat", contacts)
+# new_persons = copy.copy(persons)
+# print(new_persons == persons)
+# print(persons.contacts[1].name)
+# print(new_persons.contacts[1].name)
+
+# new_deep_persons = copy.deepcopy(persons)
+# print(persons.contacts[0].name)
+# print(new_deep_persons.contacts[0].name)
+
+# ------------------------
+# ---------------Абстракція - це вибіркове незнання ---------
+# OOP: 0 - Encapsulation, 1 - Inheritance, 2 - Polymorphism.
+# class Animal():
+#     MAX_LIFE = 200
+#     def __init__(self, nickname, age=40):
+#         self.nickname = nickname
+#         self.age = age
+
+#     def get_info(self):
+#         return f"It is animal. His name is {self.nickname} and his age is {self.age}"
+
+# class Cat(Animal):
+#         def __init__(self, nickname, owner, age=40):
+#             super().__init__(nickname, age)
+#             self.owner=owner
+#         def sound(self):
+#              return f"{self.nickname} says Meow"
+#         def get_info(self):
+#              message_from_animal = super().get_info()
+#              print(message_from_animal)
+#              print("Get info inside of cat")
+
+# cat = Cat ("Agata", "Oksana")
+# print(cat.age, cat.get_info(), cat.owner)
+# cat.get_info()
+# a = Animal(nickname="Simon")
+# print(a.age)
+# b = Animal("Barbos", 2)
+# info = a.get_info()
+# print(info)
+# print(b.get_info())
+# print(a.age, a.nickname, a.MAX_LIFE)
+# print(a.MAX_LIFE)
+# -------------------       
+# class A:
+#   x = "A"
+
+# class B(A):
+#   x = "B"
+
+# class C(A):
+#   x = "C"
+
+# class D(C,B):  # mro = method resolution order
+#   def get_x(self):
+#     return D.x
+
+# d = D()
+# print(d.get_x()) 
+
+# print(D.__mro__)
+
+# class Duck:
+#         def swim(self):
+#              return f"Duck is swimming"
+        
+
+# class Dog:
+#         def swim(self):
+#              return f"Dog is swimming"
+        
+# class Fish:
+#         def swim(self):
+#              return f"Fish is swimming"
+        
+# duck = Duck()
+# dog = Dog()
+# fish = Fish()
+# zoo = [duck, dog, fish]
+# for pet in zoo:
+#       print(pet.swim())
+
+# from collections import UserList
+
+# class CountebleList(UserList):
+#   def get_first_elem_as_list(self):
+#     first = self.data[0]
+#     return [first]
+#   def sum(self):
+#     return sum(map(lambda x: int(x), self.data))
+  
+# counteble = CountebleList([1, "2", 3, "4"])
+# counteble.append("5")
+# print(counteble.sum())
+# print(counteble.get_first_elem_as_list())
+
+# class MyExeption(Exception):
+#   def __init__(self, value):
+#     self.value = value
+
+# def baz(n):
+#   if n<0:
+#     raise MyExeption (f"Value {n} is negativ")
+#   else:
+#     return n + 100
+# try:
+#     baz(-100)
+# except MyExeption as err:
+#   print(err)
+
+# class Animal():
+#     def __init__(self, nickname, age=40):
+#         self.nickname = nickname
+#         self.age = age
+
+#     def get_info(self):
+#         return f"It is animal. His name is {self.nickname} and his age is {self.age}"
+
+
+# class Owner():
+#      def __init__(self, name, pfone):
+#           self.name = name
+#           self.pfone = pfone
+#      def info (self):
+#           return f"{self.name}:{self.pfone}"
+          
+
+
+# class Cat(Animal):
+#         def __init__(self, nickname, age, name, pfone ):
+#             super().__init__(nickname, age)
+#             self.owner=Owner(name,pfone)
+
+#         def sound(self):
+#              return f"{self.nickname} says Meow"
+        
+#         def get_info(self):
+#              message_from_animal = super().get_info()
+#              print(message_from_animal)
+#              print("Get info inside of cat")
+
+# cat = Cat("Simon", 4, "Oksana", "0637352030")
+# print(cat.owner.info())
+
+# class Animal():
+#     def __init__(self, nickname, age=40):
+#         self.nickname = nickname
+#         self.age = age
+
+#     def get_info(self):
+#         return f"It is animal. His name is {self.nickname} and his age is {self.age}"
+
+
+# class Owner():
+#      def __init__(self, name, pfone):
+#           self.name = name
+#           self.pfone = pfone
+#      def info (self):
+#           return f"{self.name}:{self.pfone}"
+          
+
+
+# class Cat(Animal):
+#         def __init__(self, nickname, age, owner ):
+#             super().__init__(nickname, age)
+#             self.owner = owner
+
+#         def sound(self):
+#              return f"{self.nickname} says Meow"
+        
+#         def get_info(self):
+#              message_from_animal = super().get_info()
+#              print(message_from_animal)
+#              print("Get info inside of cat")
+
+# oksana = Owner("Oksana", "0637352030")
+# cat = Cat("Simon", 4, oksana)
+# print(cat.owner.info())
+
+# from time import perf_counter
+# def timer():
+#   #start = perf_counter ()
+#   def inner():
+#     start = perf_counter ()
+#     return perf_counter() - start
+#   return inner
+
+
+
+# # Python program to show time by perf_counter() 
+# from time import perf_counter
+ 
+# # integer input from user, 2 input in single line
+# n, m = map(int, input().split())  # [3,5]
+# print ("n,m >>> ",n,m)
+ 
+# # Start the stopwatch / counter
+# t1_start = perf_counter() 
+ 
+# for i in range(n):
+#     t = int(input()) # user gave input n times
+#     if t % m == 0:
+#         print("t % m == 0", t) 
+ 
+# # Stop the stopwatch / counter
+# t1_stop = perf_counter()
+ 
+# print("Elapsed time:", t1_stop, t1_start) 
+ 
+ 
+# print("Elapsed time during the whole program in seconds:",
+#                                         t1_stop-t1_start)
+
+# def add(a,b):
+#   return a+b
+
+# def counter(func):
+#   count = 0
+#   def inner(*args,**qwargs):
+#     nonlocal count
+#     count += 1
+#     print(f"function {func.__name__} ---> {count} time")
+#     return func(*args,**qwargs)
+#   return inner
+
+#  magic
+
+# class Car:
+#   def __init__(self, year, mark, model, color, price):
+#     self.year = year
+#     self.mark = mark
+#     self.model = model
+#     self.color = color
+#     self.price = price
+
+#   def __repr__(self):
+#     return f"Car ({self.year}, {self.mark}, {self.model})"
+  
+#   def __str__(self):
+#     return f"({self.year} - {self.mark} - {self.model})"
+  
+#   def __eq__(self, other):
+#     return self.price == other.price
+  
+#   def __nq__(self, other):
+#     return self.price != other.price
+
+# car1 = Car(2016, "Honda","Civic", "grey", 30000)
+# car2 = Car(2023, "Kia", "Sorento", "red", 50000)
+
+# print(car1)
+# print(repr(car1))
+# print(car1.__eq__(car2))
+# print(car1==car2)
+# print(car1!=car2)
+
+
+# from collections import UserList
+
+# class Vector(UserList):
+
+#   def __init__(self, *args):
+#     self.data = list (args)
+
+#   def __mul__(self, other):
+#     res = 0
+#     for i in range(min(len(self.data), len(other))):
+#       res += self.data[i]*other[i]
+#     return res
+
+  
+# vec1 = Vector(1,2,3,)
+# vec2 = Vector (13,3,3, 54)
+# print(vec1*vec2)
+
+# class DatabaseConnection:
+#   instance = None
+#   def __new__(cls, * args):
+#     if cls.instance is None:
+#       cls.instance = super(DatabaseConnection, cls).__new__(cls)
+#     return cls.instance 
+
+#   def __init__(self, database_name):
+#     self.database_name = database_name
+
+# db1 = DatabaseConnection("users")
+# db2 = DatabaseConnection("users")
+# db3 = DatabaseConnection("users")
+# print(db1, db2, db3)
+
+# @classmethod @staticmethod
+
+# class Multiplicator:
+
+#   # просто метод доступний лише в обєкті класу
+#   def double (self,x):
+#     print("Mul on 2: %s" % self)
+#     return x*2
+  
+#   #фабрики, фабричний метод
+#   @classmethod
+#   def triples (cls, x):
+#     print("Mul on 3: %s" % cls)
+#     return x*3
+  
+#   # утилітка, майже як звичайна функція
+#   @staticmethod
+#   def quad(x):
+#     return x*4
+  
+
+# multi = Multiplicator()
+# print(multi.double(3))
+# print(multi.triples(4))
+# #print(Multiplicator.double(3)) # error
+# print(Multiplicator.triples(3)) # no error
+# print(Multiplicator.quad(10))
+# print(multi.quad(40))
+
+# class Pizza:
+#   def __init__(self, ingredienst) -> None:
+#     self.ingrediens = ingredienst
+
+#   def __repr__(self) -> str:
+#     return f"Pizza ({self.ingrediens})"
+  
+#   @classmethod
+#   def margherita(cls):
+#     return cls(["mozzarell", "tomatoes"])
+  
+#   @classmethod
+#   def prosciutto(cls):
+#     return cls (["mozzarell", "tomatoes", "ham"])
+  
+# m = Pizza.margherita()
+# print(m)
+# print(m.ingrediens)
+# p = Pizza.prosciutto()
+# print(p)
+# print(p.ingrediens)
+
+# incapsulaion | setter | getter
+
+# class Animal:
+#   def __init__(self,nickname, age, weight) -> None:
+#     self.__name = nickname
+#     self.age = age
+#     self.weight = weight
+
+#   @property  # only reading 
+#   def name_of_dog(self):
+#     return self.__name
+  
+#   @name_of_dog.setter
+#   def name_of_dog(self, nickname):
+#     if len(nickname) > 0:
+#         self.__name = nickname
+#     else:
+#         raise ValueError("Give it a name")
+
+#   @property
+#   def dog_info(self):
+#     return f"{self.age} {self.weight}"
+
+
+
+
+# a = Animal("Reks", 20, 34)
+# print(a.age)
+# #print(a.name)
+# print(a.weight)
+# print(a.name_of_dog)
+# #print(a._Animal__name) #Verbotten!!!!
+# a.name_of_dog = "Barbos"
+# print(a.name_of_dog)
+
+
+# class Person:
+#     def __init__(self, name):
+#         self.__name = None
+#         self.name = name
+
+#     @property
+#     def name(self):
+#         return self.__name
+
+#     @name.setter
+#     def name(self, name):
+#         if (type(name) == str) and (len(name) > 0):
+#             self.__name = name
+
+
+# person = Person(123)
+# print(person.name)  # None
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# iterator generator
+
+# class RepetetiveIterator:
+#   def __init__(self, seq, count_loop) -> None:
+#     self.seq = seq
+#     self.count_loop = count_loop
+#     self.loop = 0
+#     self.index = 0
+
+#   def __iter__(self):
+#     return(self)
+
+#   def __next__(self):
+#     if self.loop >= self.count_loop:
+#       raise StopIteration
+#     else:
+#       value = self.seq[self.index]
+#       self.index += 1
+#       if self.index == len(self.seq):
+#         self.index = 0
+#         self.loop += 1
+#       return value
+
+
+# seq = ["a", "b", "c"]
+# iter = RepetetiveIterator(seq, 4)
+# print(next(iter))
+# print(next(iter))
+# print(next(iter))
+# print(next(iter))
+# print(next(iter))
+# print(next(iter))
+# print(next(iter))
+# print(next(iter))
+# print(next(iter))
+# print(next(iter))
+
+# print("---------------------------")
+# for i in iter:
+#   print(i)
+
+# print(iter)
+
+# call magic
+
+# class Count:
+#   def __init__(self, init_steps) -> None:
+#     self.steps = init_steps
+
+#   def __call__(self, * args, **kwargs):
+#     print("Inside")
+#     print(args)
+#     inc = args[0]
+#     self.steps += inc
+
+# count_step = Count(100)
+# count_step (25)
+# print (count_step.steps)
+# count_step (50)
+# print (count_step.steps)
+
+# from pathlib import Path
+
+# p = Path('C:/Users/kompik/Downloads')    # p Вказує на папку /home/user/Downloads
+# for i in p.iterdir():
+#     print(i.name)   # Виведе у циклі імена всіх папок та файлів у /home/user/Downloads
+
+# for i in range(16):
+#     s = "int: {0:d};  hex: {0:#x};  oct: {0:#o};  bin: {0:#b}".format(i)
+#     print(s)
+
+# #width = 5
+# for num in range(12):
+#     print('{:^10} {:^10} {:^10}'.format(num, num**2, num**3))
+
+# s =  "{name!r} {last_name!s}".format(last_name="Dilan", name="Bob")
+# print(s)  # 'Bob' Dilan
+
+#print('dec: {:d} hex: {:x} bin: {:b}'.format(15, 15, 15))  # dec: 15 hex: f bin: 1111
+
+#print("|{:<10}|{:*^10}|{:>10}|".format('left', 'center', 'right'))  # |left      |**center**|     right|
+
+# import re
+
+# s = "I am 25 years old."
+# age = re.search('\d+', s)
+# print(age.group())  # 25
+# print(re.findall('\d+',s))
+
+# s = "I bought 7 nuts for 6$ and 10 bolts for 3$."
+# numbers = re.findall('\d+', s)
+# print(numbers)  # ['7', '6', '10', '3']
+
+# from decimal import Decimal, getcontext
+
+
+# getcontext().prec = 6
+# print(Decimal(1) / Decimal(7))  # Decimal('0.142857')
+# print(1/7)
+
+# getcontext().prec = 28
+# print(Decimal(1) / Decimal(7)) # Decimal('0.1428571428571428571428571429')
+
+# from collections import UserList
+
+# class PositiveNumbers(UserList):
+#   def __init__(self, data=[]):
+#     super().__init__()
+#     #self.data = [number for number in filter(lambda x: x > 0, data)]
+#     self.data = list(filter(lambda x: x > 0, data))
+
+#   # def __getitem__(self, index):
+#   #   pass
+
+#   # def __setitem__(self, key, value):
+#   #   pass
+
+
+# nums = PositiveNumbers([1, 2, 4, -10, 34])
+# print(nums)
+
+# -----------------------------
+
+#
+
+# import pickle
+
+
+# d = {"password": 1232}
+# byte_info = pickle.dumps(d)
+# print(byte_info)
+# d_reversed = pickle.loads(byte_info)
+# print(d_reversed)
+# print(d_reversed["password"])
+
+# with open("key_binary.bin", 'wb') as fh:
+#   pickle.dump(d,fh)
+
+# with open("key_binary.bin", 'rb') as fh:
+#   data = pickle.load(fh)
+
+# print(data)
+
+# import pickle
+
+# users = [
+#   ["Oleksii", 18, True],
+#   ["Alex", 25, True],
+#   ["Roman", 12, False]
+# ]
+
+# with open ("users.dat", 'wb') as fh:
+#   pickle.dump(users, fh)
+
+# with open("users.dat", 'rb') as fh:
+#   users_from_dat = pickle.load(fh)
+
+# print(users_from_dat)
+
+# import pickle
+# from datetime import datetime
+
+# class rememberall():
+#   def __init__ (self, data):
+#     self.data = data
+#     self.restored = None
+#     self.saved = None
+
+# #serialize
+#   def __getstate__ (self):
+#     print ("__getstate__ ")
+#     state=self.__dict__
+#     state["saved"] = datetime.now()
+#     return state
+
+
+# #deserialize
+#   def __setstate__ (self, state):
+#     print ("__setstate__ ")
+#     self.__dict__ = state
+#     self.restored = datetime.now()
+    
+
+# r=rememberall([1,2,3])
+# print(r.data)
+# r_dump = pickle.dumps(r)
+# r_load = pickle.loads(r_dump)
+# print(r_load.data)
+# print(r.saved, r_load.restored)
+
+# for i in filter(lambda x: x % 2 != 0, range(1, 10+1)):
+#     print(i)
+
+# some_str = 'aaAbbB C F DDd EEe'
+# for i in filter(lambda x: x.islower(), some_str):
+#     print(i, end= "")
+
+
+# def input_number():
+#     while True:
+#         try:
+#             num = input("Enter integer number: ")
+#             return int(num)
+#         except:
+#             print(f'"{num}" is not a number. Try again')
+
+
+# num = input_number()
+# print(num)
+
+
+# import string
+
+
+# class NameTooShortError(Exception):
+#     pass
+
+
+# class NameStartsFromLowError(Exception):
+#     pass
+
+
+# def enter_name():
+#     name = input("Enter name: ")
+#     if len(name) < 3:
+#         raise NameTooShortError
+#     if name[0] not in string.ascii_uppercase:
+#         raise NameStartsFromLowError
+
+
+
+# while True:
+#     try:
+#         name = enter_name()
+#         break
+#     except NameTooShortError:
+#         print('Name is too short, need more than 3 symbols. Try again.')
+#     except NameStartsFromLowError:
+#         print('Name should start from capital letter. Try again.')
+
+# 28/10/2023
+
+
+
+
