@@ -6033,6 +6033,111 @@
 
 # 28/10/2023
 
+# class Contact:
+#   def __init__(self):
+#     self._phones = []
+
+#   @property
+#   def phones(self):
+#     return self._phones
+
+#   @phones.setter
+#   def phones(self, values):
+#     if self.validate_phones(values):
+#       self._phones = values
+#     else:
+#       raise ValueError("Invalid phone numbers")
+
+#   def add_phone(self, phone):
+#     if self.validate_phone(phone):
+#       self._phones.append(phone)
+#     else:
+#       raise ValueError("Invalid phone number")
+
+#   @staticmethod
+#   def validate_phone(phone):
+#     if len(phone) != 10 or not phone.isdigit():
+#             return False
+#     return True
+
+#   def validate_phones(self, phones):
+#     return all(self.validate_phone(phone) for phone in phones)
+
+# if __name__==__name__:
+#   contact = Contact()
+#   phone_number = "1111111111"
+#   try:
+#     contact.add_phone(phone_number)
+#     print("Number added successfully")
+#     print("Current list of phone numbers:", contact.phones)
+#   except ValueError as e:
+#     print("Error adding number:", str(e))
+
+#   phone_number = "2222222222"
+#   try:
+#     contact.add_phone(phone_number)
+#     print("Number added successfully")
+#     print("Current list of phone numbers:", contact.phones)
+#   except ValueError as e:
+#     print("Error adding number:", str(e))
+
+# contact = Contact()
+# phone_number = "1111111111"
+# contact.add_phone(phone_number)
+# print("Number added successfully")
+# print("Current list of phone numbers:", contact.phones)
+# phone_number = "2222222222"
+# contact.add_phone(phone_number)
+# print("Number added successfully")
+# print("Current list of phone numbers:", contact.phones)
 
 
+
+# class Contact:
+#     def __init__(self, name, phone, address=None, emails=None, birth_date=None):
+#         self.name = name
+#         self._phones = None  # Store phone numbers in a list
+#         self.phones = phone
+#         self.address = address
+#         self.emails = emails if emails is not None else []  # Initialize as empty list if not provided
+#         self.birth_date = birth_date
+
+#     @property
+#     def phones(self):
+#         return self._phones
+
+#     @phones.setter
+#     def phones(self, value):   # чи буде викликатися сеттер при редагуванні телефону?
+#         if self.validate_phone(value) and self._phones == None:
+#             self._phones = [value]
+#         elif self.validate_phone(value) and self._phones != None:
+#             #self._phones.append(value)
+#             self._phones = [0]
+#         else:
+#             raise ValueError("Invalid phone number")
+
+#     @staticmethod
+#     def validate_phone(phone):
+#         digits = sum(char.isdigit() for char in phone)
+#         return digits == 10
+
+#     def add_phone(self, phone):
+#         self.phones.append(phone)
+
+    
+
+#     def __str__(self):
+#         return (f"Name: {self.name}\n"
+#                 f"Phones: {', '.join(self.phones)}\n"
+#                 f"Address: {self.address or 'N/A'}\n"
+#                 f"Emails: {', '.join(self.emails) if self.emails else 'N/A'}\n"
+#                 f"Birth Date: {self.birth_date if self.birth_date else 'N/A'}")
+
+# if __name__ == "__main__":
+
+#     contact = Contact("John Doe", "98723411110", "123 Main St", ["john@example.com"], "1990-01-01")
+#     print(contact)
+    
+#     contact.add_phone("987")
+#     print(contact)
 
